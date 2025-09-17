@@ -149,42 +149,42 @@
 //   printf("%d 일 운동했다\n",count);
 // }
 
-#include <stdio.h>
-/**
- * @brief  do while 문
- * 
- * @return int 
- */
-
- 
-int main()
-{
-   int weight=80 ;
-   int count=0;
-   int select;
+// #include <stdio.h>
+// /**
+//  * @brief  do while 문
+//  * 
+//  * @return int 
+//  */
 
 
-   do
-   {
-      printf("운동해서 1kg 빼자\n");
-      weight--;
-      count++;
+// int main()
+// {
+//    int weight=80 ;
+//    int count=0;
+//    int select;
 
-       printf("운동 더 할 거임?\n");
-       printf("1. yes 2. no 숫자를 넣으시오\n");
-       scanf("%d",&select);
 
-       if(select ==2) break;
-   } while (weight>70);
-   {
+//    do
+//    {
+//       printf("운동해서 1kg 빼자\n");
+//       weight--;
+//       count++;
+
+//        printf("운동 더 할 거임?\n");
+//        printf("1. yes 2. no 숫자를 넣으시오\n");
+//        scanf("%d",&select);
+
+//        if(select ==2) break;
+//    } while (weight>70);
+//    {
    
-      printf("축하합니다 운동안해도 됨\n");  
-      printf("%d 일 운동했다\n",count); 
-   }
-}
+//       printf("축하합니다 운동안해도 됨\n");  
+//       printf("%d 일 운동했다\n",count); 
+//    }
+// }
 
 
-#include <stdio.h>
+// #include <stdio.h>
 // /**
 //  * @brief  do while 문
 //  * 
@@ -285,3 +285,27 @@ int main()
 //       printf("축하합니다 운동안해도 됨\n");  
 //       printf("%d 일 운동했다\n",count); 
 // }
+
+#include <stdio.h>
+
+int main()
+{
+   int i,j;
+   for(i=0;i<5;i++)
+   {
+      for(j=0;j<=i;j++)    // i=0 j=0 *  i=0 j=1이니까 내부 for 수행안하고 나와서 함 i=1 j=0 j=1 두번* 만듬
+      {
+         printf("*");
+      }
+      printf("\n");
+   }
+   for(i=4;i>0;i--)
+   {
+      for(j=0;j<=i-1;j++)
+      {
+         printf("*");
+      }
+      printf("\n");
+   }
+}
+

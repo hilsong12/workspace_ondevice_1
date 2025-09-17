@@ -69,7 +69,7 @@ int main() {
             int a,b,c;
             char op;
             
-            scanf("%d %c %d",a,op,b);
+            scanf("%d %c %d",&a,&op,&b);
         
             switch(op)
             {
