@@ -162,6 +162,7 @@ int main()
    int count=0;
    int select;
 
+   
    do
    {
       printf("운동해서 1kg 빼자\n");
