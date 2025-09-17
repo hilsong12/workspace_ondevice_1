@@ -155,6 +155,7 @@
  * 
  * @return int 
  */
+
 int main()
 {
    int weight=80 ;
