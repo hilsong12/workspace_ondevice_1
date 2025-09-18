@@ -110,15 +110,85 @@
 //  }
 
 
+// /**
+//  * @brief 전역변수(global variable)
+//  * -전역함수란 (메인)함수의 외부에서 선언된 변수를 의미함
+//  * -전역변수는 프로그램의 어디에서나 접근이 가능
+//  * -프로그램이 종료되어야 메모리에서 삭제
+//  * -메모리의 데이터(data)영역에 저장
+//  * -컴파일시 메모리 공간을 확보
+//  * -초기화 하지 않아도 0으로 자동 초기와 됨
+//  */
+
+//  #include<stdio.h>
+ 
+//  void local(); //함수의 원형선언
+
+//  int var;      //전역 변수 선언
+
+
+//  int main()
+//  {
+//      printf("전역변수 var의 초기값은 :%d\n",var);
+//      int i=5;
+//      int var=10; //지역변수
+
+//    printf("main함수내의 지역변수 var의 값은 :%d\n",var);
+
+//  if(i<10)
+//     {
+//         local();
+//          printf("현재 var의 값 :%d\n",var );  //지역변수에 접근
+//     }
+
+//     printf("더 이상 메인함수에서는 전역변수 var에 접근이 불가\n"); //local 로끌어오지 않는한
+//     printf("지역변수 var값: %d\n",var);
+//  }
+
+//  void local()
+//  {
+//     var=20;
+//      printf("local()함수내의 지역변수 var의 값은 : %d\n",var);  
+//  }
+
+
 /**
- * @brief 전역변수(global variable)
- * -전역함수란 (메인)함수의 외부에서 선언된 변수를 의미함
- * -전역변수는 프로그램의 어디에서나 접근이 가능
- * -프로그램이 종료되어야 메모리에서 삭제
- * -메모리의 데이터(data)영역에 저장
- * -컴파일시 메모리 공간을 확보
- * -초기화 하지 않아도 0으로 자동 초기와 됨
+ * @brief 정적변수(static variable)
+ * -static 키워드로 선언된 변수
+ * -정적변수는 지역변수와 전역변수의 특징을 모두 가진다
+ * -함수내에서 선언된 정적변수는 단 한번만 전역변수처럼 초기화 됨  <-전역변수 특징
+ * -프로그램이 종료 되어야 메모리에서 삭제   <-전역변수 특징
+ * -정적변수는 지역변수처럼 해당함수내에서만 접근가능  <-지역변수 특징
  */
 
  #include<stdio.h>
- 
+
+void local();
+void staticVar();
+
+
+ int main()
+ {
+    for(int i=0;i<3;i++)
+    {
+
+        local();
+         staticVar();
+    }
+ }
+
+ void local()
+ {
+    int count=1;
+    printf ("local()함수가 %d번째 호출되었음\n",count);
+    count++;
+
+ }
+    
+
+ void staticVar()
+ {
+ static int static_count=1;
+ printf("statiVar()함수가 %d번째 호출 되었음\n",static_count);
+ static_count++;
+ }
