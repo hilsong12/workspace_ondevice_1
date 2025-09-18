@@ -46,13 +46,14 @@
 // }
 
 #include <stdio.h>
-#include <stdlib.h> // system("cls") 사용
+#include <stdlib.h> // system("clear") 사용
 
 int main() {
-    int choice;
+    int choice=0;
+    int k=0;
 
     do {
-        system("clear"); // 콘솔 화면 지우기 (Windows)
+        system("clear"); // 콘솔 화면 지우기 (리눅스)
         printf("+---------------------+\n");
         printf("|      메뉴 선택       |\n");
         printf("+---------------------+\n");
@@ -64,50 +65,44 @@ int main() {
         scanf("%d", &choice);
 
         switch(choice) {
-            case 1: printf("계산기 실행!\n"); 
+            case 1: 
             
-            int a,b,c;
-            char op;
+            do{
             
-            scanf("%d %c %d",&a,&op,&b);
+            printf("계산기 실행!\n"); 
+            
+                      int a,b,c;
+                      char op;
+            
+                scanf("%d %c %d",&a,&op,&b);
         
-            switch(op)
-            {
-              case '+' : c = a + b ;
-              printf("%d\n",c); break;
-              case '-' : c = a - b ;
-              printf("%d\n",c); break;
-              case '*' : c = a *b ;
-              printf("%d\n",c); break;
-              case '/' : c = a / b ;
-              printf("%d\n",c); break;
+                        switch(op)
+                          {
+                            case '+' : c = a + b ;
+                           printf("%d\n",c); break;
+                            case '-' : c = a - b ;
+                           printf("%d\n",c); break;
+                            case '*' : c = a *b ;
+                           printf("%d\n",c); break;
+                            case '/' : c = a / b ;
+                           printf("%d\n",c); break;
 
-            }
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                          }
+                    
+            printf("1. 계속 사용 2. 계산기 나가기\n");   //근데 나는 나가면 전체 메뉴 선택하는걸로 나가고 싶어
+            scanf("%d" , &k);
+            getchar();
+              }while(k == 1);
             
             break;
+            
+            
+    
             case 2: printf("게임 실행!\n"); break;
             case 3: printf("프로그램 종료!\n"); break;
             default: printf("잘못된 선택!\n");
         }
 
-        if(choice != 3) {
-            printf("계속하려면 엔터 키를 누르세요...");
-            getchar(); // 버퍼 지우기
-            getchar(); // 엔터 기다리기
-        }
 
     } while(choice != 3);
 
