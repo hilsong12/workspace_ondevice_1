@@ -135,8 +135,8 @@
 
 //    printf("----------------\n");
 
-//    ptr ->a =3;
-//    ptr ->b =5;
+//    ptr->a =3;
+//    ptr->b =5;
 
 //     printf("st의 멤버인 a 의 값 : %d\n",st.a);   //.은 멤버를 데려오고 화살표는 멤버의 값이다. 위 아래 같은 것이다. 
 //    printf("st의 멤버인 b 의 값 : %d\n",st.b);
@@ -180,16 +180,16 @@ int main()
 
     //add_one 함수의 인자에 t구조체 변수의 멤버인 c 주소값을 전달
     
-    add_one(t.c);
+    add_one(&t.c);
     printf("t.c : %d\n",t.c);
 
 
     // add_one 함수의 인자에 pt 가 가르키는 구조체 변수의 멤버인 c의 주소값 전달
-    add_one("t.c: %d\n",t.c);
+    add_one(&pt->c);
     printf("t.c : %d\n",t.c);
 }
 
-int add_one(int *a)
+int add_one(int *a) // 포인터값 받아서 안에있는거 1늘리면 내용물 값을 1늘린다.
 {
     *a +=1;
     return 0;
