@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/user12/workspace_ondevice_1/avr/atmega128a/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/atmega128a.dir/main.c.o -c /home/user12/workspace_ondevice_1/avr/atmega128a/main.c",
+  "file": "/home/user12/workspace_ondevice_1/avr/atmega128a/main.c",
+  "output": "CMakeFiles/atmega128a.dir/main.c.o"
+}
+]
