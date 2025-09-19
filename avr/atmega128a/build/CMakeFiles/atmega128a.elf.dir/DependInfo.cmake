@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/user12/workspace_ondevice_1/avr/atmega128a/main.c" "CMakeFiles/atmega128a.elf.dir/main.c.o" "gcc" "CMakeFiles/atmega128a.elf.dir/main.c.o.d"
+  "/home/user12/workspace_ondevice_1/avr/atmega128a/main.c" "CMakeFiles/atmega128a.elf.dir/main.c.obj" "gcc" "CMakeFiles/atmega128a.elf.dir/main.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

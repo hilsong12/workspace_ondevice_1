@@ -130,13 +130,13 @@ atmega128a.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/build
 .PHONY : atmega128a.elf/fast
 
-main.o: main.c.o
-.PHONY : main.o
+main.obj: main.c.obj
+.PHONY : main.obj
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/main.c.o
-.PHONY : main.c.o
+main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/main.c.obj
+.PHONY : main.c.obj
 
 main.i: main.c.i
 .PHONY : main.i
@@ -163,7 +163,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... atmega128a.elf"
-	@echo "... main.o"
+	@echo "... main.obj"
 	@echo "... main.i"
 	@echo "... main.s"
 .PHONY : help

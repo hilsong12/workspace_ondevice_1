@@ -1,8 +1,8 @@
 [
 {
   "directory": "/home/user12/workspace_ondevice_1/avr/atmega128a/build",
-  "command": "/usr/bin/cc -DF_CPU=16000000UL -I/home/user12/workspace_ondevice_1/avr/atmega128a/src -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/ap -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/bsp -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/hw -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common/hw/include -g -fdata-sections -ffunction-sections -MMD -flto -fno-fat-lto-objects -Wall -Os -g3 -o CMakeFiles/atmega128a.elf.dir/main.c.o -c /home/user12/workspace_ondevice_1/avr/atmega128a/main.c",
+  "command": "/media/user12/data/avr-gcc/bin/avr-gcc -DF_CPU=16000000UL -I/home/user12/workspace_ondevice_1/avr/atmega128a/src -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/ap -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/bsp -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/hw -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common/hw/include -mmcu=atmega128a -DF_CPU=16000000UL -Os -g -std=gnu11 -fdata-sections -ffunction-sections -MMD -flto -fno-fat-lto-objects -Wall -Os -g3 -o CMakeFiles/atmega128a.elf.dir/main.c.obj -c /home/user12/workspace_ondevice_1/avr/atmega128a/main.c",
   "file": "/home/user12/workspace_ondevice_1/avr/atmega128a/main.c",
-  "output": "CMakeFiles/atmega128a.elf.dir/main.c.o"
+  "output": "CMakeFiles/atmega128a.elf.dir/main.c.obj"
 }
 ]

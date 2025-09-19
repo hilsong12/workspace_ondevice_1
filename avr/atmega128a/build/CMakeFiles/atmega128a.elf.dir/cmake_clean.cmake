@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/atmega128a.elf.dir/main.c.o"
-  "CMakeFiles/atmega128a.elf.dir/main.c.o.d"
+  "CMakeFiles/atmega128a.elf.dir/main.c.obj"
+  "CMakeFiles/atmega128a.elf.dir/main.c.obj.d"
   "atmega128a.elf"
   "atmega128a.elf.pdb"
 )

@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Ubuntu AVR",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/media/user12/data/avr-gcc/avr/include",
+                "/media/user12/data/avr-gcc/avr/include/avr"
+            ],
+            "defines": [
+                "F_CPU=16000000UL",
+                "__AVR_ATmega128A__"
+            ],
+            "compilerPath":"/media/user12/data/avr-gcc/bin/avr-gcc",
+            "cStandard": "c11",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+
+}
