@@ -1,0 +1,1 @@
+/usr/bin/cc -g -flto -fuse-linker-plugin -lm -Wl,-Map=/home/user12/workspace_ondevice_1/avr/atmega128a/build/atmega128a.map,--cref -Wl,--gc-sections -Xlinker -print-memory-usage CMakeFiles/atmega128a.elf.dir/main.c.o -o atmega128a.elf 

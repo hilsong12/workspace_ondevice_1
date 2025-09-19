@@ -113,28 +113,29 @@ preinstall/fast:
 
 # clear depends
 depend:
+	$(CMAKE_COMMAND) -P /home/user12/workspace_ondevice_1/avr/atmega128a/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named atmega128a
+# Target rules for targets named atmega128a.elf
 
 # Build rule for target.
-atmega128a: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 atmega128a
-.PHONY : atmega128a
+atmega128a.elf: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 atmega128a.elf
+.PHONY : atmega128a.elf
 
 # fast build rule for target.
-atmega128a/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.dir/build.make CMakeFiles/atmega128a.dir/build
-.PHONY : atmega128a/fast
+atmega128a.elf/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/build
+.PHONY : atmega128a.elf/fast
 
 main.o: main.c.o
 .PHONY : main.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.dir/build.make CMakeFiles/atmega128a.dir/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -142,7 +143,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.dir/build.make CMakeFiles/atmega128a.dir/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -150,7 +151,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.dir/build.make CMakeFiles/atmega128a.dir/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -161,7 +162,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... atmega128a"
+	@echo "... atmega128a.elf"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -176,6 +177,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /home/user12/workspace_ondevice_1/avr/atmega128a/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

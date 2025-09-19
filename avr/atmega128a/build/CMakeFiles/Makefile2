@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/user12/workspace_ondevice_1/avr/atmega128a/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/atmega128a.dir/all
+all: CMakeFiles/atmega128a.elf.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/atmega128a.dir/clean
+clean: CMakeFiles/atmega128a.elf.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/atmega128a.dir
+# Target rules for target CMakeFiles/atmega128a.elf.dir
 
 # All Build rule for target.
-CMakeFiles/atmega128a.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.dir/build.make CMakeFiles/atmega128a.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.dir/build.make CMakeFiles/atmega128a.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user12/workspace_ondevice_1/avr/atmega128a/build/CMakeFiles --progress-num=1,2 "Built target atmega128a"
-.PHONY : CMakeFiles/atmega128a.dir/all
+CMakeFiles/atmega128a.elf.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user12/workspace_ondevice_1/avr/atmega128a/build/CMakeFiles --progress-num=1,2 "Built target atmega128a.elf"
+.PHONY : CMakeFiles/atmega128a.elf.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/atmega128a.dir/rule: cmake_check_build_system
+CMakeFiles/atmega128a.elf.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user12/workspace_ondevice_1/avr/atmega128a/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/atmega128a.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/atmega128a.elf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user12/workspace_ondevice_1/avr/atmega128a/build/CMakeFiles 0
-.PHONY : CMakeFiles/atmega128a.dir/rule
+.PHONY : CMakeFiles/atmega128a.elf.dir/rule
 
 # Convenience name for target.
-atmega128a: CMakeFiles/atmega128a.dir/rule
-.PHONY : atmega128a
+atmega128a.elf: CMakeFiles/atmega128a.elf.dir/rule
+.PHONY : atmega128a.elf
 
 # clean rule for target.
-CMakeFiles/atmega128a.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.dir/build.make CMakeFiles/atmega128a.dir/clean
-.PHONY : CMakeFiles/atmega128a.dir/clean
+CMakeFiles/atmega128a.elf.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/clean
+.PHONY : CMakeFiles/atmega128a.elf.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
@@ -107,6 +107,7 @@ CMakeFiles/atmega128a.dir/clean:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /home/user12/workspace_ondevice_1/avr/atmega128a/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
