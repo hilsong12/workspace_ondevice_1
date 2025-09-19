@@ -186,6 +186,59 @@ int main()
   
 
 
+// int arr[2][3];
+
+// printf("arr[0]: %p \n",arr[0]);
+// printf("arr[0][0]: %p \n",arr[0][0]);
+
+// printf("arr[1]: %p \n",arr[0]);
+// printf("arr[1][0]: %p \n",arr[1][0]);
+
+
+// int arr[2][3]= {{1,2,3},{4,5,6}};
+ 
+// printf("전체크기 %d\n",sizeof(arr))
+// printf("총 열 갯수 : %d\n",sizeof*arr[0]/)
+
+// int *arr[3]; //포인터배열
+// int a=1, b=2, c=3; // 선언과 동시에 초기화 작업
+// arr[0] =&a;
+// arr[1] = &b;
+// arr[2] = &c;
+
+// printf(" a: %d *arr[0]: %d\n", a,*arr[0]);
+// printf(" a: %d *arr[1]: %d\n", b,*arr[1]);
+// printf(" a: %d *arr[2]: %d\n", b,*arr[2]);
+
+// printf("&a: %p arr[0] %p\n", &a,arr[0]); //포인터도 배열로 만들수 있다. 
+// //포인터 배열을 만들수 있다
+
+
+
+// int arr[3]={1,2,3};
+// int *p = &arr[0]; // int *p = arr;
+
+// for (int i = 0; i < 3; i++,p++)   //  p++ 데이터 형의 만큼 뛰어가겠다.
+// {
+//     printf("p=%p,",p); //포인터 변수니까 주소를 찍고
+//     printf("*p= %d\n", *p); //주소에 있는 값을 찍는다.
+// }
+
+
+// int arr[5]={1,3,5,7,9};
+// int *p = &arr[0]; // int *p = arr;
+
+// for (int i = 0; i < 5; i++)   //  p++ 데이터 형의 만큼 뛰어가겠다.
+// {
+//     printf("p=%p,",p); //포인터 변수니까 주소를 찍고
+//     //printf("*p= %d\n", *p++); //주소에 있는 값을 찍는다.    p++실행 한다음에 올려줌 
+//     printf("*p= %d\n", (*p)++); //주소에 있는 값을 찍는다.  주소값이 안올라 간다. 
+// }
+
+
+
+
+
 
 }
 
