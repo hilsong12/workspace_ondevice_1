@@ -8,9 +8,9 @@ Discarded input sections
  .data          0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
  .bss           0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
- .text          0x0000000000000000        0x0 /tmp/ccWrvDQG.ltrans0.ltrans.o
- .data          0x0000000000000000        0x0 /tmp/ccWrvDQG.ltrans0.ltrans.o
- .bss           0x0000000000000000        0x0 /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .text          0x0000000000000000        0x0 /tmp/ccQKAgps.ltrans0.ltrans.o
+ .data          0x0000000000000000        0x0 /tmp/ccQKAgps.ltrans0.ltrans.o
+ .bss           0x0000000000000000        0x0 /tmp/ccQKAgps.ltrans0.ltrans.o
  .text          0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
  .data          0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
  .bss           0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
@@ -46,7 +46,7 @@ Address of section .data set to 0x800100
 LOAD /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 LOAD /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/libm.a
 LOAD CMakeFiles/atmega128a.elf.dir/main.c.obj
-LOAD /tmp/ccWrvDQG.ltrans0.ltrans.o
+LOAD /tmp/ccQKAgps.ltrans0.ltrans.o
 START GROUP
 LOAD /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a
 LOAD /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/libm.a
@@ -245,7 +245,7 @@ END GROUP
                 0x00000000000000a0                __vector_20
                 0x00000000000000a4                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x00000000000000a4        0x2 /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .text.startup  0x00000000000000a4        0x2 /tmp/ccQKAgps.ltrans0.ltrans.o
                 0x00000000000000a4                main
                 0x00000000000000a6                . = ALIGN (0x2)
  *(.fini9)
@@ -341,7 +341,7 @@ END GROUP
 
 .comment        0x0000000000000000       0x30
  *(.comment)
- .comment       0x0000000000000000       0x30 /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .comment       0x0000000000000000       0x30 /tmp/ccQKAgps.ltrans0.ltrans.o
                                          0x31 (size before relaxing)
 
 .note.gnu.avr.deviceinfo
@@ -367,7 +367,7 @@ END GROUP
 .debug_aranges  0x0000000000000000       0x20
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x20 /tmp/ccWrvDQG.ltrans0.ltrans.o
+                0x0000000000000000       0x20 /tmp/ccQKAgps.ltrans0.ltrans.o
 
 .debug_pubnames
  *(.debug_pubnames)
@@ -375,26 +375,26 @@ END GROUP
 .debug_info     0x0000000000000000      0x7cb
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x780 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
- .debug_info    0x0000000000000780       0x4b /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .debug_info    0x0000000000000780       0x4b /tmp/ccQKAgps.ltrans0.ltrans.o
 
 .debug_abbrev   0x0000000000000000      0x754
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x718 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
- .debug_abbrev  0x0000000000000718       0x3c /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .debug_abbrev  0x0000000000000718       0x3c /tmp/ccQKAgps.ltrans0.ltrans.o
 
 .debug_line     0x0000000000000000       0x7d
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000       0x1a /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
- .debug_line    0x000000000000001a       0x63 /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .debug_line    0x000000000000001a       0x63 /tmp/ccQKAgps.ltrans0.ltrans.o
 
 .debug_frame    0x0000000000000000       0x24
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x24 /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .debug_frame   0x0000000000000000       0x24 /tmp/ccQKAgps.ltrans0.ltrans.o
 
 .debug_str      0x0000000000000000      0x379
  *(.debug_str)
  .debug_str     0x0000000000000000      0x27d /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
- .debug_str     0x000000000000027d       0xfc /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .debug_str     0x000000000000027d       0xfc /tmp/ccQKAgps.ltrans0.ltrans.o
 
 .debug_loc
  *(.debug_loc)
@@ -419,7 +419,7 @@ END GROUP
 
 .debug_ranges   0x0000000000000000       0x10
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x10 /tmp/ccWrvDQG.ltrans0.ltrans.o
+ .debug_ranges  0x0000000000000000       0x10 /tmp/ccQKAgps.ltrans0.ltrans.o
 
 .debug_macro
  *(.debug_macro)
@@ -478,6 +478,6 @@ __vectors                                         /media/user12/data/avr-gcc/bin
 _exit                                             /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
 exit                                              /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
                                                   /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
-main                                              /tmp/ccWrvDQG.ltrans0.ltrans.o
+main                                              /tmp/ccQKAgps.ltrans0.ltrans.o
                                                   CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
                                                   /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o

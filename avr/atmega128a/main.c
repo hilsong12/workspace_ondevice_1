@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <avr/io.h>
 
-int main()
-{
-    while(1)
+int main(){
+
+    
+    while (1)
     {
-      
+        
     }
+    
 }
