@@ -143,7 +143,10 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1,
+				2,
+				3
 			]
 		}
 	],
@@ -211,7 +214,10 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1,
+				2,
+				3
 			]
 		}
 	],
@@ -221,6 +227,24 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/ap/ap.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/driver/button.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/driver/led.c",
 			"sourceGroupIndex" : 0
 		}
 	],

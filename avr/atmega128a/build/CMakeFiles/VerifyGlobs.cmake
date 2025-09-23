@@ -24,6 +24,9 @@ endif()
 # SRC_FILES_RECURSE at CMakeLists.txt:15 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/user12/workspace_ondevice_1/avr/atmega128a/src/*.c")
 set(OLD_GLOB
+  "/home/user12/workspace_ondevice_1/avr/atmega128a/src/ap/ap.c"
+  "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.c"
+  "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
