@@ -2,6 +2,9 @@
     "folders": [
         {
             "path": "atmega128a"
+        },
+        {
+            "path": "../clang/c_lecture"
         }
     ],
     "settings": {

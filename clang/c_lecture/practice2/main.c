@@ -1,18 +1,18 @@
 #include <stdio.h>
 
-struct Student {
-    char name;   // 문자열을 가리키는 포인터
-    int age;
-};
 
-int main() {
-    struct Student s1;
+int main() 
+{
+    char score[6];
 
-    s1.name = "홍길동"; // 문자열 상수를 포인터에 연결
-    s1.age = 20;
+    int count =sizeof(score)/sizeof(score[0])-1;
 
-    printf("이름: %s, 나이: %d\n", s1.name, s1.age);
+    for (int i = 0; i < count; i++)
+    {
+        scanf( " %c",&score[i]);
+    }
+    score[count]='\0';
 
-    return 0;
+    printf("%s",score);
 }
 

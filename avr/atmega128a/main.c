@@ -17,13 +17,6 @@ uint8_t ledArr[]=
 
 
 
-void ledInit(); // led  초기화 함수
-void ledOn();
-void ledOff();
-void ledRight();
-void ledleft();
-
-
 
 
 
@@ -165,59 +158,89 @@ void ledleft();
 //    }
 
 
-int main()
-
-{
-
-
-
-
-ledInit();
-
-  while(1)
-
-  {
-
-ledOn();
-_delay_ms(1000);
-ledOff();
-_delay_ms(1000);
-
-   }
+// void ledInit(); // led  초기화 함수
+// void ledOn();
+// void ledOff();
+// void ledRight();
+// void ledleft();
 
 
 
+// int main()
+
+// {
+
+
+
+// ledInit();
+
+//   while(1)
+
+//   {
+
+// ledOn();
+// _delay_ms(500);
+// ledOff();
+// _delay_ms(1000);
+
+//    }
+
+
+
+// }
+
+
+// void ledInit() // led  초기화 함수
+// {
+//    DDRD =0xff;
+// }
+
+// void ledOn()
+// {
+//    PORTD = 0xff;
+// }
+
+// void ledOff()
+// {
+//    PORTD= 0x00;
+// }
+
+
+// void ledRight()
+// {
+//     PORTD = PORTD>>1;
+// }
+
+// void ledLeft()
+// {
+//    PORTD = PORTD<<1;
+// }
 
 
 
 
+// int main()
+// {
 
-}
+// DDRD = 0xff;
+
+// while (1)
+// {
+
+//   for (int8_t i = 0; i < 8; i++)
+//   {
+    
+//     PORTD = ((0x10 << i) | (0x08 >> (8-i))) | ((0x10 >> i) | (0x08 << (8-i)))     ;
+//     _delay_ms(500);      // 0000 0010 
+//                          // 0000 0001  0000 
+//   }
+  
+  
+  
 
 
-void ledInit() // led  초기화 함수
-{
-   DDRD =0xff;
-}
-
-void ledOn()
-{
-   PORTD = 0xff;
-}
-
-void ledOff()
-{
-   PORTD= 0x00;
-}
+// }
 
 
-void ledRight()
-{
-    PORTD = PORTD>>1;
-}
-
-void ledLeft()
-{
-   PORTD = PORTD<<1;
-}
+// }
 
