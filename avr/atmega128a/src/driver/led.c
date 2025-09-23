@@ -38,7 +38,7 @@ void ledOff(LED *led)
 
 
 
-void ledLeftShift(LED *led)
+void ledLeftShift(LED *led)  //힌번만 움직임
 {
    *(led->port - 1)= 0xff;
    *(led->port) = ( *(led->port) >> 7) | (*(led->port) <<1); //LED 데이터를 좌측으로 1이동
