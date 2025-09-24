@@ -302,68 +302,88 @@
 // #include "button.h"
 
 
-#include"./src/ap/ap.h"    //버튼누르면 켜짐
+// #include"./src/ap/ap.h"    //버튼누르면 켜짐
 
-
-int main()
-{
-
-    DDRD=0xff;
-    //DDRG &= ~(1 <<2);  //DDRG의 2번핀을 입력으로 설정
-    DDRG &= ~(1<<DDRG4);  // DDRG = 1111 1011                  DDRG2=2 => 0000 0100  => 1111 1011 0을 써야하기때문에 &연산자
-    DDRG &= ~(1<<DDRG3);
-    DDRG &= ~(1<<DDRG3);
-
-
-   while(1)
-   {
-    //0000 0100 ping 평상시 pull-up 저항이기때문에
-    if(PING &(1<<PING2))   //스위치를 누르지 않으면 0000 0100 & 0000 0100 => 0000 0100
-    {                         //& 하나 붙으면 비트 연산자  //if 면 0이 아니면 다 참이다 0000 0100 !!
-        PORTD=0x00;
-    }
-    else                      //스위치를 누르면 0000 0000 & 0000 0100  => 0000 0000
-    {
-        PORTD = 0xff;
-    }
-    
-
-   if (!(PING & (1<<PING3 )))   //누르면 시행하게 만들고 싶어 지금은 안눌러야 시행돼 
-    {
-   PORTD =0x01;
-   _delay_ms(200);
-   for (uint8_t i = 0; i < 7; i++)
-   {
-     PORTD = ( (PORTD) >> 7) | ((PORTD) <<1); //LED 데이터를 좌측으로 1이동
-     _delay_ms(200);
-
-     if(!(PING &(1<<PING2)))
-     {
-     break;
-     } 
-   }
-   
-   
-
-    }
-}
-
-
-   
-
-
-}
-
-
-
-
-
-
-// #include "./src/ap/ap.h"     //LED왼쪽으로 움직이는거
 
 // int main()
 // {
-// apInit();
+
+//     DDRD=0xff;
+//     //DDRG &= ~(1 <<2);  //DDRG의 2번핀을 입력으로 설정
+//     DDRG &= ~(1<<DDRG4);  // DDRG = 1111 1011           DDRG2=2 => 0000 0100  => 1111 1011 0을 써야하기때문에 &연산자
+//     DDRG &= ~(1<<DDRG3);   // 0을 쓰겠다. 입력으로 쓰겠다.
+//     DDRG &= ~(1<<DDRG3);
+
+
+//    while(1)
+//    {
+//     //0000 0100 ping 평상시 pull-up 저항이기때문에
+//     if(PING &(1<<PING2))   //스위치를 누르지 않으면 0000 0100 & 0000 0100 => 0000 0100
+//     {                         //& 하나 붙으면 비트 연산자  //if 면 0이 아니면 다 참이다 0000 0100 !!
+//         PORTD=0x00;
+//     }
+//     else                      //스위치를 누르면 0000 0000 & 0000 0100  => 0000 0000
+//     {
+//         PORTD = 0xff;
+//     }
+    
+
+//    if (!(PING & (1<<PING3 )))   //누르면 시행하게 만들고 싶어 지금은 안눌러야 시행돼 
+//     {
+//    PORTD =0x01;
+//    _delay_ms(200);
+//    for (uint8_t i = 0; i < 7; i++)
+//    {
+//      PORTD = ( (PORTD) >> 7) | ((PORTD) <<1); //LED 데이터를 좌측으로 1이동
+//      _delay_ms(200);
+
+//      if(!(PING &(1<<PING2)))
+//      {
+//      break;
+//      } 
+//    }
+//     }
+
+//    if(!(PING &(1<<PING4)))
+//    {
+//     PORTD= 0x80;
+//     _delay_ms(200);
+//     for (uint8_t i = 0; i < 7; i++)
+//    {
+//      PORTD = ( (PORTD) << 7) | ((PORTD) >>1); //LED 데이터를 우측으로 1이동
+//      _delay_ms(200);
+
+//      if(!(PING &(1<<PING2)))
+//      {
+//      break;
+//      } 
+
+     
+
+//    }
+
+//    }
+
+   
+
+//     }
+// }
+
+
+   
+
+
+
+
+
+
+
+
+// #include "./src/ap/ap.h"     
+
+// int main()
+// {
+
 // apMain();
 
 // while (1)
@@ -371,6 +391,39 @@ int main()
 //     /* code */
 // }
 // }
+
+
+#include "./src/ap/ap.h"    
+
+int main()
+{
+    DDRB =0xff;           //b는 출력 c는 컨트롤
+    DDRC = 0xff;
+    PORTC =0x00;
+
+    uint8_t fndNumber[]=
+    {
+        0x3f,0x06,0x5b,0x4f,0x66,0x6d, 0x7d,0x27,0x7f,0x67
+    };
+
+
+    int count = 0;
+    while(1)
+    {
+        PORTB = fndNumber[count];
+        count = (count + 1) %10;    //13이라면 나머지가 3이여서 3의 값을 나타낸다.
+
+        _delay_ms(200);
+    }
+
+
+    
+
+
+}
+
+
+
 
 
 
