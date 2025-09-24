@@ -391,15 +391,52 @@
 //     /* code */
 // }
 // }
+//-------------------------------------------------------------------------------------------------
+
+// #include "./src/ap/ap.h"      PORTB 모든 세그먼트 키기 0부터 9까지 반복
+
+// int main()
+// {
+//     DDRB =0xff;           //b는 출력 c는 컨트롤
+//     DDRC = 0xff;
+//     PORTC =0x00;   // 모든걸 받겠다
+//     
 
 
-#include "./src/ap/ap.h"    
+//     uint8_t fndNumber[]=
+//     {
+//         0x3f,0x06,0x5b,0x4f,0x66,0x6d, 0x7d,0x27,0x7f,0x67
+//     };
+
+
+//     int count = 0;
+//     while(1)
+
+//     {
+//         PORTB = fndNumber[count];
+//         count = (count + 1) %10;    //13이라면 나머지가 3이여서 3의 값을 나타낸다.
+
+//         _delay_ms(200);
+//     }
+
+
+// }
+
+//---------------------------------------------------------------------
+
+
+
+
+
+#include "./src/ap/ap.h"     //숫자가 0부터 9999까지 올라기는것
 
 int main()
 {
     DDRB =0xff;           //b는 출력 c는 컨트롤
     DDRC = 0xff;
-    PORTC =0x00;
+    PORTC =0x00;   // 모든걸 받겠다
+    DDRA =0xff;
+
 
     uint8_t fndNumber[]=
     {
@@ -409,6 +446,7 @@ int main()
 
     int count = 0;
     while(1)
+    
     {
         PORTB = fndNumber[count];
         count = (count + 1) %10;    //13이라면 나머지가 3이여서 3의 값을 나타낸다.
@@ -421,7 +459,6 @@ int main()
 
 
 }
-
 
 
 
