@@ -435,7 +435,7 @@ int main()
     DDRC = 0xff;
     PORTC =0x00;   // 모든걸 받겠다
     DDRA =0xff;
-
+//s
 
     uint8_t fndNumber[]=
     {
