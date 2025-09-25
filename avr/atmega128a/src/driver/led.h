@@ -1,4 +1,3 @@
-
 #include "../common/def.h"
 
 #define LED_DDR  DDRD

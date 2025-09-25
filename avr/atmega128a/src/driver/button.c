@@ -35,5 +35,5 @@ uint8_t buttonGetState(BUTTON *button)
      return ACT_RELEASE;             //버튼에서 손을 뗏음을 반환
      
    }
-   return NO_ACT;                     //아무것도 안한 상태
+   return NO_ACT;                     //아무것도 안한 상태  반환
 }

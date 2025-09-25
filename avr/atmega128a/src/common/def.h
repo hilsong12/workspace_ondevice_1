@@ -1,5 +1,9 @@
 #include<avr/io.h>
 #include<util/delay.h>  //avr에 관한부분
+#include<avr/interrupt.h>
+
+
+
 
 #include<stdio.h>
 #include<stdbool.h>

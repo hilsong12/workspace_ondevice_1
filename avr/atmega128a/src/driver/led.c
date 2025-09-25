@@ -1,11 +1,4 @@
-
 #include "led.h"
-
-
-
-
-
-
 
 void ledInit( LED *led)  // 매개변수가 포인토로 선언되었기 때문에 주소값을 받아야 함!! 
 {
@@ -37,21 +30,18 @@ void ledOff(LED *led)
 
 
 
-
 void ledLeftShift(LED *led)  //힌번만 움직임
 {
    *(led->port - 1)= 0xff;
    *(led->port) = ( *(led->port) >> 7) | (*(led->port) <<1); //LED 데이터를 좌측으로 1이동
-
   }
   
   
 
-
-
 void ledRightShift(LED *led)
 {
-
+  *(led->port - 1)= 0xff;
+   *(led->port) = ( *(led->port) << 7) | (*(led->port) >>1); //LED 데이터를 우측으로 1이동
 }
 
 

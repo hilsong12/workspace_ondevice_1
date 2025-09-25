@@ -202,6 +202,30 @@ src/driver/button.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/button.c.s
 .PHONY : src/driver/button.c.s
 
+src/driver/fnd.obj: src/driver/fnd.c.obj
+.PHONY : src/driver/fnd.obj
+
+# target to build an object file
+src/driver/fnd.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj
+.PHONY : src/driver/fnd.c.obj
+
+src/driver/fnd.i: src/driver/fnd.c.i
+.PHONY : src/driver/fnd.i
+
+# target to preprocess a source file
+src/driver/fnd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.i
+.PHONY : src/driver/fnd.c.i
+
+src/driver/fnd.s: src/driver/fnd.c.s
+.PHONY : src/driver/fnd.s
+
+# target to generate assembly for a file
+src/driver/fnd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.s
+.PHONY : src/driver/fnd.c.s
+
 src/driver/led.obj: src/driver/led.c.obj
 .PHONY : src/driver/led.obj
 
@@ -244,6 +268,9 @@ help:
 	@echo "... src/driver/button.obj"
 	@echo "... src/driver/button.i"
 	@echo "... src/driver/button.s"
+	@echo "... src/driver/fnd.obj"
+	@echo "... src/driver/fnd.i"
+	@echo "... src/driver/fnd.s"
 	@echo "... src/driver/led.obj"
 	@echo "... src/driver/led.i"
 	@echo "... src/driver/led.s"

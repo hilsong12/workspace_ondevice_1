@@ -17,14 +17,14 @@
 // }
 
 
-
+//--------------------------------------led left shifting----------------------------
 
 // void apInit()
 // {
    
 // }
 
-// void apMain()     ***************************led 왼쪽으로 옮기기
+// void apMain()     
 // {
 
 //      LED led; // LED 타입의 구조체변수 led 선언
@@ -54,13 +54,14 @@
 
 
 
+//-------------------------------------------버튼 누르면 켜지기 온 오프 토글---------------------
 
 // void apInit()
 // {
    
 // }
 
-// void apMain()     //**********************버튼 누르면 켜지는거 */
+// void apMain()     
 // {
 //    DDRD = 0xff;  //대충 led 세팅
 
@@ -80,10 +81,10 @@
 //       if(buttonGetState(&btnOff) == ACT_RELEASE)  {PORTD = 0x00;}      //눌렀다가 떼면 작동
 
 //       if(buttonGetState(&btnTog) == ACT_RELEASE)  {PORTD ^= 0xff;}        //눌렀다가 떼면 작동
-//    }
+//    }                                                                       //xor 연산
 // }
 
-
+//-------------------------------포트 A 숫자0부터 9까지------------------------------------
 
 
 //  DDRA =0xff;
@@ -110,22 +111,79 @@
 
 
 
+//------------------------------------4-array 세븐세그먼트 0부터 9까지 무한 출력------------
+
+
+// void apInit()
+// {
+
+// }
+
+// void apMain()
+// {
+
+
+// DDRB =0xff;           //b는 출력 c는 컨트롤
+//     DDRC = 0xff;
+//     PORTC =0x00;   // 모든걸 받겠다
+//     DDRA =0xff;
+
+
+//     uint8_t fndNumber[]=
+//     {
+//         0x3f,0x06,0x5b,0x4f,0x66,0x6d, 0x7d,0x27,0x7f,0x67
+//     };
+
+
+//     int count = 0;
+//     while(1)
+    
+//     {
+//         PORTB = fndNumber[count];
+//         count = (count + 1) %10;    //13이라면 나머지가 3이여서 3의 값을 나타낸다.
+
+//         _delay_ms(1000);
+//     }
 
 
 
-void apInit()
-{
-
-}
-
-void apMain()
-{
+// }
 
 
+//-------------------0000부터 9999까지 세기-----------------------------------------
+
+// void apInit()
+// {
+
+// }
+
+// void apMain()
+// {
+  
+//     FND_DATA_DDR =0xff;
+//     FND_SELECT_DDR=0xff;
+
+//     FND_SELECT_PORT= 0x00;
+
+//     uint16_t count = 0;     //
+//     uint32_t timeTick = 0;
+//     uint32_t prevTime = 0;
 
 
+     
+//   while (1)
+//   {
+//     FND_Display(count);    //FND에 count 값을 츨력
 
+//     if(timeTick -prevTime >100)   // 100ms 지날때마다 count값을 1씩 증가
+//     {
+//         prevTime = timeTick;
+//         count++;
+//     }
+//      _delay_ms(1);
+//      timeTick++;
+//   }
+  
+// }
 
-}
-
-
+//---------------------------------------------------------------------------------

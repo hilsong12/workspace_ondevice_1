@@ -424,45 +424,79 @@
 
 //---------------------------------------------------------------------
 
-//S
 
 
-#include "./src/ap/ap.h"     //숫자가 0부터 9999까지 올라기는것
+// #include "./src/ap/ap.h"     
 
-int main()
-{
-    DDRB =0xff;           //b는 출력 c는 컨트롤
-    DDRC = 0xff;
-    PORTC =0x00;   // 모든걸 받겠다
-    DDRA =0xff;
-//s
+// int main()
+// {
 
-    uint8_t fndNumber[]=
-    {
-        0x3f,0x06,0x5b,0x4f,0x66,0x6d, 0x7d,0x27,0x7f,0x67
-    };
-
-
-    int count = 0;
-    while(1)
-    
-    {
-        PORTB = fndNumber[count];
-        count = (count + 1) %10;    //13이라면 나머지가 3이여서 3의 값을 나타낸다.
-
-        _delay_ms(200);
-    }
-
-
-    
-
-
-}
+// }
 
 
 
 
 
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------
+
+// #include "./src/ap/ap.h"   
+// ISR(INT6_vect)  //Falling
+// {
+//     PORTD ^= 0x03;            //0101 0101 //토글하면 이렇게 되야하는데 1010 1010
+// }
+
+// ISR(INT7_vect)  //Rising
+// {
+//     LED led ;
+//               //0101 0101 //토글하면 이렇게 되야하는데 1010 1010
+//     led.port = &PORTD ;
+//     *(led.port - 1)= 0xff;
+//    *(led.port) = ( *(led.port) >> 7) | (*(led.port) <<1); //LED 데이터를 좌측으로 1이동
+
+// }
+
+
+
+// int main()
+// {
+// //    apMain();
+
+//       sei();   //인터럽트 푼다
+// //    SREG |= (1<< 7);
+
+// //    cli();    //인터럽트 설정
+// //    SREG &= ~(1<<7);
+
+
+//     // EICRB = 0xE0;          //1110 0000
+//     EICRB |=(1<< ISC71) |(1<<ISC70) | (1<< ISC61); //위에와 똑같다. //int7 rising edge
+//                                                                  // int6 falling edge
+
+//     // EIMSK =0xc0;
+//     EIMSK |= (1<<INT7) |(1<<INT6); // INT7, INT 6 interrupt enable
+
+
+//     DDRD = 0xff;
+//     PORTD =0x00;
+//     DDRE =0x00;
+
+//     while(1)
+//     {
+
+//     }
+
+// }
+
+
+
+
+//-------------------------------------------------------------------------
 
 
 
