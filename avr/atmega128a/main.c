@@ -426,12 +426,14 @@
 
 
 
-// #include "./src/ap/ap.h"     
+#include "./src/ap/ap.h"     
 
-// int main()
-// {
+int main()
+{
+  
+    apMain();
 
-// }
+}
 
 
 

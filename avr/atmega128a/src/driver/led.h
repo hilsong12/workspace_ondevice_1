@@ -19,6 +19,8 @@ typedef struct
 
 } LED;
 
-void ledInit( LED *led);
+void ledInit(LED *led);
 void ledOn(LED *led);
 void ledOff(LED *led);
+void ledInitAll();
+void ledTwinkle(LED *led);

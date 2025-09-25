@@ -1,20 +1,62 @@
 #include "ap.h"
 
+//--------------------------  충전됐다가 방전됨-------------------------
+// void apMain()
+// {
+//     //  DDRD =0xff;
+//     //  LED ledData ;
+//     //  ledData.port =&PORTD;  //0xaa;
+//      LED_PORT= 0x00; 
+//      int count =0;
+//      LED_DDR =0xff;
+//       while(1)
+//     {
+           
+     
+     
+//          if (count<8)
+//             for (int i = 0; i <8 ; i++)
+//          {
+//             PORTD |= (1 << i);  
+//              _delay_ms(200);
+//              count++;
+//          }
+
+//          else
+//          {
+//            for (int i=8; i>0; i--)
+//             {
+//             PORTD &= ~(1 << (i-1)); 
+//             _delay_ms(200);
+//             }
+//             count=0;
+//           } 
+
+//     }
+
+
+
+//  }
+    // while문에서 break는 안거는게 나음
+//-------------------------------  불빛 양옆으로 움직이기----------------------
+
 
 // void apMain()
 // {
-
-//      uint8_t ledData =0x01;
-
-//     while(1)
-//     {
-          
-//       ledLeftShift(&ledData);
-//       _delay_ms(200); 
-
-//     }
-//     // while문에서 break는 안거는게 나음
+// LED_DDR = 0xff;
+// while(1)
+// {
+//    for (int8_t i = 0; i < 8; i++)
+//   {
+    
+//     PORTD = ((0x10 << i) | (0x08 >> (i))) | ((0x10 >> (8-i)) | (0x08 << (8-i)))     ;
+//     _delay_ms(500);      // 0000 0010 
+//                          // 0000 0001  0000 
+//   }
+  
 // }
+// }
+
 
 
 //--------------------------------------led left shifting----------------------------
@@ -31,25 +73,36 @@
 
 //      led.port = &PORTD; //  여기서 PORTD의 주소값은 0x12(데이터시트 참조)
 //      led.pinNumber = 0;  //이건 그냥 핀번호임!!
-//     //  for (uint8_t i = 0; i < 8; i++)
-//     //  {
-//     //     led.pinNumber = i;
-//     // ledInit(&led);   // ledInit 함수를 호출하면서 led 변수의 주소를 보냄
+   
 
-//     // }
-     
-//      ledInit(&led);
+//      ledInit(&led);  
+
+//      while(1)
+//      {
+//          for (uint8_t i = 0; i < 8; i++)
+//      {
+//         led.pinNumber = i;  // ledInit 함수를 호출하면서 led 변수의 주소를 보냄
+
+//      ledInit(&led); 
 //      ledOn(&led);
-//     _delay_ms(500);
-
-//     while(1)
-//     {
-         
-//           ledLeftShift(&led);
-//           _delay_ms(500);
+//      _delay_ms(500);
+//      ledOff(&led);
+//      _delay_ms(500);
 
 //     }
-//     // while문에서 break는 안거는게 나음
+
+//      }
+
+    // _delay_ms(500);
+
+    // while(1)
+    // {
+         
+    //       ledLeftShift(&led);
+    //       _delay_ms(500);
+
+    // }
+    // while문에서 break는 안거는게 나음
 // }
 
 

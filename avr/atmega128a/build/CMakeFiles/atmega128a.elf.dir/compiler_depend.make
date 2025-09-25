@@ -7,6 +7,7 @@ CMakeFiles/atmega128a.elf.dir/main.c.obj: /home/user12/workspace_ondevice_1/avr/
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/ap/ap.h
 
 CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/ap/ap.c \
@@ -15,6 +16,7 @@ CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj: /home/user12/workspace_ondevice_1
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/ap/ap.h
 
 CMakeFiles/atmega128a.elf.dir/src/driver/button.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.c \
@@ -29,6 +31,12 @@ CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj: /home/user12/workspace_ondev
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.h
 
+CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.c \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.h
+
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.c:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c:
 
@@ -47,5 +55,7 @@ CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj: /home/user12/workspace_ondev
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.h:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.h:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/main.c:

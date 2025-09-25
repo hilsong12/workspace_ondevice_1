@@ -19,6 +19,7 @@ void ledOn(LED *led)
   // 이번에는 포트에 1을 써야 출력이 됨
   // 해당핀에 1을 씀
   *(led->port) |= (1 << led->pinNumber); 
+  //  *(led->port) |= 0xaa;
 }
 
 void ledOff(LED *led)
@@ -29,7 +30,6 @@ void ledOff(LED *led)
 }
 
 
-
 void ledLeftShift(LED *led)  //힌번만 움직임
 {
    *(led->port - 1)= 0xff;
@@ -37,15 +37,23 @@ void ledLeftShift(LED *led)  //힌번만 움직임
   }
   
   
-
 void ledRightShift(LED *led)
 {
   *(led->port - 1)= 0xff;
    *(led->port) = ( *(led->port) << 7) | (*(led->port) >>1); //LED 데이터를 우측으로 1이동
 }
 
+// LED 포트 레지스터를 출력모드로 설정하는 함수
+void ledInitALL()
+{
+   LED_DDR = 0xFF;
+}
 
+void ledTwinkle( LED *led)   //반짝임
+{
 
+  *(led->port) = ~*(led->port);
+}
 
 
 
@@ -57,12 +65,7 @@ void ledRightShift(LED *led)
 //   LED_PORT = data;
 // }
 
-// // LED 포트 레지스터를 출력모드로 설정하는 함수
-// void ledInit()
-// {
-//    LED_DDR = 0xFF;
-  
-// }
+
 
 // // LED 데이터를 좌측으로 이동하는 함수
 // void ledLeftShift(uint8_t *data)
