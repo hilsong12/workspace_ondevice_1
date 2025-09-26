@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.c" "CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj" "gcc" "CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj.d"
   "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c" "CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj" "gcc" "CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj.d"
   "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.c" "CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj" "gcc" "CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj.d"
+  "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0_int.c" "CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj" "gcc" "CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

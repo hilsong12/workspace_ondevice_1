@@ -274,6 +274,30 @@ src/driver/uart0.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.s
 .PHONY : src/driver/uart0.c.s
 
+src/driver/uart0_int.obj: src/driver/uart0_int.c.obj
+.PHONY : src/driver/uart0_int.obj
+
+# target to build an object file
+src/driver/uart0_int.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj
+.PHONY : src/driver/uart0_int.c.obj
+
+src/driver/uart0_int.i: src/driver/uart0_int.c.i
+.PHONY : src/driver/uart0_int.i
+
+# target to preprocess a source file
+src/driver/uart0_int.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.i
+.PHONY : src/driver/uart0_int.c.i
+
+src/driver/uart0_int.s: src/driver/uart0_int.c.s
+.PHONY : src/driver/uart0_int.s
+
+# target to generate assembly for a file
+src/driver/uart0_int.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.s
+.PHONY : src/driver/uart0_int.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -301,6 +325,9 @@ help:
 	@echo "... src/driver/uart0.obj"
 	@echo "... src/driver/uart0.i"
 	@echo "... src/driver/uart0.s"
+	@echo "... src/driver/uart0_int.obj"
+	@echo "... src/driver/uart0_int.i"
+	@echo "... src/driver/uart0_int.s"
 .PHONY : help
 
 

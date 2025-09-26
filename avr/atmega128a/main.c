@@ -430,9 +430,10 @@
 
 int main()
 {
-  
+  while(1)
+  {
     apMain();
-
+  }
 }
 
 
