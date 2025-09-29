@@ -655,15 +655,15 @@
 
 //--------------   유아트와 선풍기 연결----------------..............
 
-// #include "./src/ap/ap.h"     
+#include "./src/ap/ap.h"     
 
 
-// int main()
-// {
-//   apInit();
-//   apMain();
+int main()
+{
+  apInit();
+  apMain();
 
-// }
+}
 
 
 
@@ -671,27 +671,27 @@
 //64분주 100hz 주파수 생성
 //계산 결과  top =2499
 
-#include "./src/ap/ap.h"     
+// #include "./src/ap/ap.h"     
 
-int main()
-{
+// int main()
+// {
  
-  DDRB |= (1<<PB5); // PWM 신호가 나갈 PORT 출력 선언
+//   DDRB |= (1<<PB5); // PWM 신호가 나갈 PORT 출력 선언
 
-  TCCR1A |= (1<<COM1A1) |( 1<<WGM11);
-  TCCR1B |= (1<<WGM13) | (1<<WGM12) | ( 1<<CS11) |(1<<CS10) ;
-  //TCCR1C |=  
+//   TCCR1A |= (1<<COM1A1) |( 1<<WGM11);
+//   TCCR1B |= (1<<WGM13) | (1<<WGM12) | ( 1<<CS11) |(1<<CS10) ;
+//   //TCCR1C |=  
 
-  ICR1 =4999;
-  OCR1A = 625; //25%    1250-> 약 50%, 1875 -> 약 75% width
+//   ICR1 =4999;
+//   OCR1A = 625; //25%    1250-> 약 50%, 1875 -> 약 75% width
 
 
-  while (1)
-  {
+//   while (1)
+//   {
     
    
 
-  }
+//   }
   
 
-}
+// }

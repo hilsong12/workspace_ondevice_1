@@ -342,38 +342,38 @@
 ///--------------------------------유아트와 모터 연결-----------
 
 
-// void apInit()
-// {
-//     uart0_int_init();
-//     pwm_8bit_init();
-// }
+void apInit()
+{
+    uart0_int_init();
+    pwm_8bit_init();
+}
 
 
 
-// void apMain()
-// {
+void apMain()
+{
 
-//     OCR0 =0;
-//     char data;
+    OCR0 =0;
+    char data;
 
-//     while(1)
-//     {
-//         data = UART0_Receive();
-//         UART_Tramsmit(data);
-//         int i = data -'0';
+    while(1)
+    {
+        data = UART0_Receive();
+        UART_Tramsmit(data);
+        int i = data -'0';
 
-//         if(data == '0')
-//         { OCR0 =0; }
+        if(data == '0')
+        { OCR0 =0; }
         
-//         if(data == '1') 
-//         {OCR0 =127;}
+        if(data == '1') 
+        {OCR0 =127;}
         
-//         if(data == '2') 
-//         {OCR0 =255;}
+        if(data == '2') 
+        {OCR0 =255;}
 
 
-//     }
-// }
+    }
+}
 
 //--------------------------
 
