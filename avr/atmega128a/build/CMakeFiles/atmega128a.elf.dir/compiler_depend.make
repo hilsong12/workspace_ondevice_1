@@ -33,6 +33,10 @@ CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj: /home/user12/workspace_ondev
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.h
 
+CMakeFiles/atmega128a.elf.dir/src/driver/pwm_8bit.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.c \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.h
+
 CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.c \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.h
@@ -43,6 +47,8 @@ CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj: /home/user12/workspace
 
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0_int.c:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.h:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/main.c:
 
@@ -69,3 +75,5 @@ CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj: /home/user12/workspace
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.c:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.c:

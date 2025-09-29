@@ -28,6 +28,7 @@ set(OLD_GLOB
   "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.c"
   "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.c"
   "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c"
+  "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.c"
   "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.c"
   "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0_int.c"
   )

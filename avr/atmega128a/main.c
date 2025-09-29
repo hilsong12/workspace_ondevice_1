@@ -422,26 +422,156 @@
 
 // }
 
-//---------------------------------------------------------------------
+//------------------------------     ctc모드    타이머 카운트 설정    ---------------------------------------
 
 
 
-#include "./src/ap/ap.h"     
+// #include "./src/ap/ap.h"     
 
-int main()
-{
-  while(1)
-  {
-    apMain();
-  }
-}
+// int main()
+// {
 
 
+//  // DDRB = 0xff; //PB4 출력으로 설정
+//   DDRB |= (1<< PB4); //한개만 출력
+
+
+//   // TCCR0 = 0x1c;
+//   TCCR0 |= (1<< COM00) |(1<<WGM01) |(1<< CS02) |(1<<CS00);
+
+//   OCR0 =249; //구한값   분주비 128 250hz 하나 만들어봐 ocr0 = 249
+
+
+//   while(1)
+//   {
+//     while ((TIFR & 0x02) == 0);  //플래그가 세우기 전까지 잡고 있겠다.
+//     TIFR =0x02;
+//     OCR0 =249;
+    
+//   }
+// }
+
+
+
+//---------------------------------------------8 bit 타이머 카운트 normal mode--------------
+//특징 중 하나가 특정핀이 아닌 일반 구형
+// 250 hz 구형파 생성 
+//분주비 :128분주
+// 2ms 마다 토글 시키면 250 hz 발생 (주기 4ms임)
+// 16Mhz= 0.000 000 0625 (62.5ns)
+//128분주 하면  0.000 000 0625 * 128 = 0.000 008 
+//0.002 =  0.000 008 *N (카운트 개수)
+//대출 게한 하면 count를 250 개 하면 됨
+//그래서 256 -250= 6
+//그러므로 TCNT 값을 6부터 시작하면 됨!!    
+
+
+
+// #include "./src/ap/ap.h"     
+
+// int main()
+// {
+
+//  // DDRB = 0x01; //PB0 출력으로 설정
+//   DDRD |= (1<< 0); //한개만 출력
+//   PORTD &= ~(1<<0); // PORTD LOW로 출발
+
+//   //normal mode, 128분주 세팅
+//   TCCR0 |= (1<< CS02) |(1<<CS00);
+
+//   TCNT0 =6;
+
+// while(1)
+// {
+//   while((TIFR & 0x01) == 0);
+//   PORTD = ~PORTD;
+//   TCNT0 =6;
+//   TIFR =0x01; //clear
+// }
+
+
+
+// }
+
+
+
+//------------------------------ FAST PWM 논인버티드 모드  ------------------------------------------
+//        분주비 256- 
+//       클럭 예상 244.14HZ 
+//            OCR값을 변경해보자.....
+
+// #include "./src/ap/ap.h"     
+
+// int main()
+// {
+//   DDRB |= (1<<PB4);
+
+//   //FAST PWM, NON-INVERTED MODE PRESCALAR 256  (비반전 256분주)
+//   TCCR0 |= (1<< WGM00) |(1<< COM01) |( 1<< WGM01) | (1<< CS02) |( 1<< CS01);
+
+//   //OCR0 = 127;
+
+
+//   while (1)
+//   {
 
 
 
 
 
+
+
+//       for (uint8_t i = 0; i < 255; i++)
+//       {
+//         OCR0 = i;
+//         _delay_ms(10);
+//       }
+      
+
+
+
+
+
+
+//   }
+
+
+// }
+//-------------------------과제 1 pwm으로 선풍기 제작    버튼 1 정지 버튼2 1단 50% 버튼 3 2단 100% 속도
+
+
+// #include "./src/ap/ap.h"     
+
+// int main()
+// {
+//   DDRB |= (1<<PB4);
+
+//   //FAST PWM, NON-INVERTED MODE PRESCALAR 256  (비반전 256분주)
+//   TCCR0 |= (1<< WGM00) |(1<< COM01) |( 1<< WGM01) | (1<< CS02) |( 1<< CS01);
+
+//   //OCR0 = 127;
+
+
+//    BUTTON btnOff;   //BUTTON 이라는 데이터형의 변수 btnOn 선언과 동시에 메모리 확보
+//    BUTTON btn1;   
+//    BUTTON btn2;
+
+//    buttonInit(&btnOff,&BUTTON_DDR, &BUTTON_PIN, BUTTON_ON);    //버튼들을 init시켜준다
+//    buttonInit(&btn1,&BUTTON_DDR, &BUTTON_PIN, BUTTON_OFF);
+//    buttonInit(&btn2,&BUTTON_DDR, &BUTTON_PIN, BUTTON_TOGGLE);
+
+
+//  while(1)
+//    {
+//       if(buttonGetState(&btnOff) == ACT_RELEASE)  {OCR0 =0;}    //눌렀다가 떼면 작동
+
+//       if(buttonGetState(&btn1) == ACT_RELEASE)  {OCR0 =127;}      //눌렀다가 떼면 작동
+
+//       if(buttonGetState(&btn2) == ACT_RELEASE)  {OCR0 =255;}        //눌렀다가 떼면 작동
+//    }      
+
+
+//   }
 
 
 
@@ -523,3 +653,45 @@ int main()
 // }
 
 
+//--------------   유아트와 선풍기 연결----------------..............
+
+// #include "./src/ap/ap.h"     
+
+
+// int main()
+// {
+//   apInit();
+//   apMain();
+
+// }
+
+
+
+//-------   16비트 타이머/카운터 fast pwm -------------------------------------------------
+//64분주 100hz 주파수 생성
+//계산 결과  top =2499
+
+#include "./src/ap/ap.h"     
+
+int main()
+{
+ 
+  DDRB |= (1<<PB5); // PWM 신호가 나갈 PORT 출력 선언
+
+  TCCR1A |= (1<<COM1A1) |( 1<<WGM11);
+  TCCR1B |= (1<<WGM13) | (1<<WGM12) | ( 1<<CS11) |(1<<CS10) ;
+  //TCCR1C |=  
+
+  ICR1 =4999;
+  OCR1A = 625; //25%    1250-> 약 50%, 1875 -> 약 75% width
+
+
+  while (1)
+  {
+    
+   
+
+  }
+  
+
+}

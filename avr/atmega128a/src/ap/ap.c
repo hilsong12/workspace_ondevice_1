@@ -295,46 +295,93 @@
 //--------------------------------------------------------------------
 
 
-//출력 스트림 표준입출력(stdio.h)
-FILE OUTPUT = FDEV_SETUP_STREAM(uart0_int_transmit,NULL,_FDEV_SETUP_WRITE);
+// //출력 스트림 표준입출력(stdio.h)
+// FILE OUTPUT = FDEV_SETUP_STREAM(uart0_int_transmit,NULL,_FDEV_SETUP_WRITE);
 
-char rxBuff[100] ={0}; //수신버퍼
-volatile uint8_t rxFlag =0; //수신 완료 플래그
+// char rxBuff[100] ={0}; //수신버퍼
+// volatile uint8_t rxFlag =0; //수신 완료 플래그
 
-ISR(USART0_RX_vect)  //수신 인터러븥 서비스 루틴
-{
-    static uint8_t rxHead =0;  //수신된 데이터의 인덱스
-    uint8_t rxData = UDR0;     //수신된 데이터
+// ISR(USART0_RX_vect)  //수신 인터러븥 서비스 루틴
+// {
+//     static uint8_t rxHead =0;  //수신된 데이터의 인덱스
+//     uint8_t rxData = UDR0;     //수신된 데이터
 
-    if(rxData =='\n' || rxData == '\r')  //수신된 데이터가 마지막이 개행이나 리턴이면
-    {
-        rxBuff[rxHead] = '\0'; //문자열의 마지막에 널문자 삽입
-        rxHead = 0;            //인덱스 초기화
-        rxFlag = 1;            //문자열을 수신했다고 깃발 세움
-    }
-    else                        //그렇지 않다면 다음 문자를 계속 받음
-    {
-        rxBuff[rxHead] = rxData;  //수신된 데이터를 버퍼에 계속 추가
-        rxHead++;                 //버퍼 인덱스를 하나씩 증가
-    }
-}
+//     if(rxData =='\n' || rxData == '\r')  //수신된 데이터가 마지막이 개행이나 리턴이면
+//     {
+//         rxBuff[rxHead] = '\0'; //문자열의 마지막에 널문자 삽입
+//         rxHead = 0;            //인덱스 초기화
+//         rxFlag = 1;            //문자열을 수신했다고 깃발 세움
+//     }
+//     else                        //그렇지 않다면 다음 문자를 계속 받음
+//     {
+//         rxBuff[rxHead] = rxData;  //수신된 데이터를 버퍼에 계속 추가
+//         rxHead++;                 //버퍼 인덱스를 하나씩 증가
+//     }
+// }
 
-void apMain()
-{
+// void apMain()
+// {
 
-    uart0_int_init();
+//     uart0_int_init();
 
-    stdout = &OUTPUT;
+//     stdout = &OUTPUT;
 
-    sei();
+//     sei();
 
-    while(1)
-    {
-        if(rxFlag == 1)
-        {
-            rxFlag = 0;
-            printf("%s",rxBuff);
-            printf("\n");
-        }
-    }
-}
+//     while(1)
+//     {
+//         if(rxFlag == 1)
+//         {
+//             rxFlag = 0;
+//             printf("%s",rxBuff);
+//             printf("\n");
+//         }
+//     }
+// }
+
+///--------------------------------유아트와 모터 연결-----------
+
+
+// void apInit()
+// {
+//     uart0_int_init();
+//     pwm_8bit_init();
+// }
+
+
+
+// void apMain()
+// {
+
+//     OCR0 =0;
+//     char data;
+
+//     while(1)
+//     {
+//         data = UART0_Receive();
+//         UART_Tramsmit(data);
+//         int i = data -'0';
+
+//         if(data == '0')
+//         { OCR0 =0; }
+        
+//         if(data == '1') 
+//         {OCR0 =127;}
+        
+//         if(data == '2') 
+//         {OCR0 =255;}
+
+
+//     }
+// }
+
+//--------------------------
+
+
+
+
+
+
+
+
+
