@@ -2,18 +2,27 @@ Archive member included to satisfy reference by file (symbol)
 
 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
                               /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o (exit)
+/media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+                              /tmp/ccFAbhEf.ltrans0.ltrans.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+delayCompleteFlag   0x1               CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
+countValue          0x2               CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
 
 Discarded input sections
 
  .data          0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
  .bss           0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
- .data          0x0000000000000000        0x0 /tmp/ccdBsBj3.ltrans0.ltrans.o
- .bss           0x0000000000000000        0x0 /tmp/ccdBsBj3.ltrans0.ltrans.o
+ .data          0x0000000000000000        0x0 /tmp/ccFAbhEf.ltrans0.ltrans.o
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/driver/button.c.obj (symbol from plugin)
+ .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj (symbol from plugin)
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj (symbol from plugin)
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj (symbol from plugin)
+ .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj (symbol from plugin)
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/driver/pwm_8bit.c.obj (symbol from plugin)
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj (symbol from plugin)
  .text          0x0000000000000000        0x0 CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj (symbol from plugin)
@@ -33,6 +42,22 @@ Discarded input sections
                 0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
+ .text          0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .data          0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
 
 Memory Configuration
 
@@ -52,11 +77,13 @@ Address of section .data set to 0x800100
 LOAD /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 LOAD /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/libm.a
 LOAD CMakeFiles/atmega128a.elf.dir/main.c.obj
-LOAD /tmp/ccdBsBj3.ltrans0.ltrans.o
+LOAD /tmp/ccFAbhEf.ltrans0.ltrans.o
 LOAD CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj
 LOAD CMakeFiles/atmega128a.elf.dir/src/driver/button.c.obj
+LOAD CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj
 LOAD CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj
 LOAD CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj
+LOAD CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj
 LOAD CMakeFiles/atmega128a.elf.dir/src/driver/pwm_8bit.c.obj
 LOAD CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj
 LOAD CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj
@@ -166,7 +193,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000       0xf2
+.text           0x0000000000000000      0x19c
  *(.vectors)
  .vectors       0x0000000000000000       0x8c /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
                 0x0000000000000000                __vectors
@@ -207,6 +234,8 @@ END GROUP
  *(.init3)
  *(.init3)
  *(.init4)
+ .init4         0x0000000000000098       0x10 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+                0x0000000000000098                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -217,55 +246,55 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000000000000098        0x8 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
+ .init9         0x00000000000000a8        0x8 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
  *(.init9)
  *(.text)
- .text          0x00000000000000a0        0x4 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
-                0x00000000000000a0                __vector_22
-                0x00000000000000a0                __vector_28
-                0x00000000000000a0                __vector_1
-                0x00000000000000a0                __vector_32
-                0x00000000000000a0                __vector_34
-                0x00000000000000a0                __vector_24
-                0x00000000000000a0                __vector_12
-                0x00000000000000a0                __bad_interrupt
-                0x00000000000000a0                __vector_6
-                0x00000000000000a0                __vector_31
-                0x00000000000000a0                __vector_3
-                0x00000000000000a0                __vector_23
-                0x00000000000000a0                __vector_30
-                0x00000000000000a0                __vector_25
-                0x00000000000000a0                __vector_11
-                0x00000000000000a0                __vector_13
-                0x00000000000000a0                __vector_17
-                0x00000000000000a0                __vector_19
-                0x00000000000000a0                __vector_7
-                0x00000000000000a0                __vector_27
-                0x00000000000000a0                __vector_5
-                0x00000000000000a0                __vector_33
-                0x00000000000000a0                __vector_4
-                0x00000000000000a0                __vector_9
-                0x00000000000000a0                __vector_2
-                0x00000000000000a0                __vector_21
-                0x00000000000000a0                __vector_15
-                0x00000000000000a0                __vector_29
-                0x00000000000000a0                __vector_8
-                0x00000000000000a0                __vector_26
-                0x00000000000000a0                __vector_14
-                0x00000000000000a0                __vector_10
-                0x00000000000000a0                __vector_16
-                0x00000000000000a0                __vector_18
-                0x00000000000000a0                __vector_20
- .text          0x00000000000000a4        0xa /tmp/ccdBsBj3.ltrans0.ltrans.o
-                0x00000000000000ae                . = ALIGN (0x2)
+ .text          0x00000000000000b0        0x4 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
+                0x00000000000000b0                __vector_22
+                0x00000000000000b0                __vector_28
+                0x00000000000000b0                __vector_1
+                0x00000000000000b0                __vector_32
+                0x00000000000000b0                __vector_34
+                0x00000000000000b0                __vector_24
+                0x00000000000000b0                __vector_12
+                0x00000000000000b0                __bad_interrupt
+                0x00000000000000b0                __vector_6
+                0x00000000000000b0                __vector_31
+                0x00000000000000b0                __vector_3
+                0x00000000000000b0                __vector_23
+                0x00000000000000b0                __vector_30
+                0x00000000000000b0                __vector_25
+                0x00000000000000b0                __vector_11
+                0x00000000000000b0                __vector_13
+                0x00000000000000b0                __vector_17
+                0x00000000000000b0                __vector_19
+                0x00000000000000b0                __vector_7
+                0x00000000000000b0                __vector_27
+                0x00000000000000b0                __vector_5
+                0x00000000000000b0                __vector_33
+                0x00000000000000b0                __vector_4
+                0x00000000000000b0                __vector_9
+                0x00000000000000b0                __vector_2
+                0x00000000000000b0                __vector_21
+                0x00000000000000b0                __vector_29
+                0x00000000000000b0                __vector_8
+                0x00000000000000b0                __vector_26
+                0x00000000000000b0                __vector_14
+                0x00000000000000b0                __vector_10
+                0x00000000000000b0                __vector_18
+                0x00000000000000b0                __vector_20
+ .text          0x00000000000000b4       0x76 /tmp/ccFAbhEf.ltrans0.ltrans.o
+                0x00000000000000b4                __vector_15
+                0x00000000000000fe                __vector_16
+                0x000000000000012a                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x00000000000000ae       0x40 /tmp/ccdBsBj3.ltrans0.ltrans.o
-                0x00000000000000ae                main
-                0x00000000000000ee                . = ALIGN (0x2)
+ .text.startup  0x000000000000012a       0x6e /tmp/ccFAbhEf.ltrans0.ltrans.o
+                0x000000000000012a                main
+                0x0000000000000198                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000000ee        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
-                0x00000000000000ee                exit
-                0x00000000000000ee                _exit
+ .fini9         0x0000000000000198        0x0 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
+                0x0000000000000198                exit
+                0x0000000000000198                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -284,11 +313,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000000000000ee        0x4 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
+ .fini0         0x0000000000000198        0x4 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000000000000f2                _etext = .
+                0x000000000000019c                _etext = .
 
-.data           0x0000000000800100        0x0 load address 0x00000000000000f2
+.data           0x0000000000800100        0x0 load address 0x000000000000019c
                 [!provide]                        PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -300,20 +329,21 @@ END GROUP
                 0x0000000000800100                _edata = .
                 [!provide]                        PROVIDE (__data_end, .)
 
-.bss            0x0000000000800100        0x0
-                [!provide]                        PROVIDE (__bss_start, .)
+.bss            0x0000000000800100        0x7
+                0x0000000000800100                PROVIDE (__bss_start, .)
  *(.bss)
+ .bss           0x0000000000800100        0x7 /tmp/ccFAbhEf.ltrans0.ltrans.o
  *(.bss*)
  *(COMMON)
-                [!provide]                        PROVIDE (__bss_end, .)
-                0x00000000000000f2                __data_load_start = LOADADDR (.data)
-                0x00000000000000f2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000800107                PROVIDE (__bss_end, .)
+                0x000000000000019c                __data_load_start = LOADADDR (.data)
+                0x000000000000019c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800100        0x0
+.noinit         0x0000000000800107        0x0
                 [!provide]                        PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                        PROVIDE (__noinit_end, .)
-                0x0000000000800100                _end = .
+                0x0000000000800107                _end = .
                 [!provide]                        PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
@@ -355,7 +385,7 @@ END GROUP
 
 .comment        0x0000000000000000       0x30
  *(.comment)
- .comment       0x0000000000000000       0x30 /tmp/ccdBsBj3.ltrans0.ltrans.o
+ .comment       0x0000000000000000       0x30 /tmp/ccFAbhEf.ltrans0.ltrans.o
                                          0x31 (size before relaxing)
 
 .note.gnu.avr.deviceinfo
@@ -381,38 +411,39 @@ END GROUP
 .debug_aranges  0x0000000000000000       0x28
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x28 /tmp/ccdBsBj3.ltrans0.ltrans.o
+                0x0000000000000000       0x28 /tmp/ccFAbhEf.ltrans0.ltrans.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000      0x904
+.debug_info     0x0000000000000000      0x971
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x780 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
- .debug_info    0x0000000000000780      0x184 /tmp/ccdBsBj3.ltrans0.ltrans.o
+ .debug_info    0x0000000000000780      0x1f1 /tmp/ccFAbhEf.ltrans0.ltrans.o
 
-.debug_abbrev   0x0000000000000000      0x86c
+.debug_abbrev   0x0000000000000000      0x839
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x718 /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
- .debug_abbrev  0x0000000000000718      0x154 /tmp/ccdBsBj3.ltrans0.ltrans.o
+ .debug_abbrev  0x0000000000000718      0x121 /tmp/ccFAbhEf.ltrans0.ltrans.o
 
-.debug_line     0x0000000000000000      0x1f7
+.debug_line     0x0000000000000000      0x231
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000       0x1a /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
- .debug_line    0x000000000000001a      0x1dd /tmp/ccdBsBj3.ltrans0.ltrans.o
+ .debug_line    0x000000000000001a      0x217 /tmp/ccFAbhEf.ltrans0.ltrans.o
 
-.debug_frame    0x0000000000000000       0x34
+.debug_frame    0x0000000000000000       0x74
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x34 /tmp/ccdBsBj3.ltrans0.ltrans.o
+ .debug_frame   0x0000000000000000       0x74 /tmp/ccFAbhEf.ltrans0.ltrans.o
 
-.debug_str      0x0000000000000000      0x3e8
+.debug_str      0x0000000000000000      0x418
  *(.debug_str)
  .debug_str     0x0000000000000000      0x27d /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
- .debug_str     0x000000000000027d      0x16b /tmp/ccdBsBj3.ltrans0.ltrans.o
-                                        0x170 (size before relaxing)
+ .debug_str     0x000000000000027d      0x19b /tmp/ccFAbhEf.ltrans0.ltrans.o
+                                        0x1a8 (size before relaxing)
 
-.debug_loc
+.debug_loc      0x0000000000000000      0x12f
  *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x12f /tmp/ccFAbhEf.ltrans0.ltrans.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -434,7 +465,7 @@ END GROUP
 
 .debug_ranges   0x0000000000000000       0x18
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x18 /tmp/ccdBsBj3.ltrans0.ltrans.o
+ .debug_ranges  0x0000000000000000       0x18 /tmp/ccFAbhEf.ltrans0.ltrans.o
 
 .debug_macro
  *(.debug_macro)
@@ -447,9 +478,7 @@ Symbol                                            File
 FND_Display                                       CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj (symbol from plugin)
 UART0_Init                                        CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj (symbol from plugin)
 UART0_Receive                                     CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj (symbol from plugin)
-                                                  CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
 UART_Tramsmit                                     CMakeFiles/atmega128a.elf.dir/src/driver/uart0.c.obj (symbol from plugin)
-                                                  CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
 __DATA_REGION_LENGTH__                            /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __DATA_REGION_ORIGIN__                            /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __EEPROM_REGION_LENGTH__                          /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
@@ -457,6 +486,10 @@ __FUSE_REGION_LENGTH__                            /media/user12/data/avr-gcc/bin
 __TEXT_REGION_LENGTH__                            /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __TEXT_REGION_ORIGIN__                            /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __bad_interrupt                                   /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
+__bss_end                                         /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+__bss_start                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+__do_clear_bss                                    /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_clear_bss.o)
+                                                  /tmp/ccFAbhEf.ltrans0.ltrans.o
 __heap_end                                        /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __init                                            /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __stack                                           /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
@@ -466,8 +499,12 @@ __vector_11                                       /media/user12/data/avr-gcc/bin
 __vector_12                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __vector_13                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __vector_14                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
-__vector_15                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
-__vector_16                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
+__vector_15                                       /tmp/ccFAbhEf.ltrans0.ltrans.o
+                                                  CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj (symbol from plugin)
+                                                  /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
+__vector_16                                       /tmp/ccFAbhEf.ltrans0.ltrans.o
+                                                  CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj (symbol from plugin)
+                                                  /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __vector_17                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __vector_18                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 __vector_19                                       /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
@@ -498,11 +535,17 @@ __vector_default                                  /media/user12/data/avr-gcc/bin
 __vectors                                         /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 _exit                                             /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
 apInit                                            CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
-                                                  CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
 apMain                                            CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
-                                                  CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
 buttonGetState                                    CMakeFiles/atmega128a.elf.dir/src/driver/button.c.obj (symbol from plugin)
 buttonInit                                        CMakeFiles/atmega128a.elf.dir/src/driver/button.c.obj (symbol from plugin)
+countValue                                        CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj (symbol from plugin)
+                                                  CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
+                                                  CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
+delayCompleteFlag                                 CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj (symbol from plugin)
+                                                  CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
+                                                  CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
+delayInit                                         CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj (symbol from plugin)
+delay_ms                                          CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj (symbol from plugin)
 exit                                              /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/avr51/libgcc.a(_exit.o)
                                                   /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
 ledInit                                           CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj (symbol from plugin)
@@ -512,12 +555,14 @@ ledOff                                            CMakeFiles/atmega128a.elf.dir/
 ledOn                                             CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj (symbol from plugin)
 ledRightShift                                     CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj (symbol from plugin)
 ledTwinkle                                        CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj (symbol from plugin)
-main                                              /tmp/ccdBsBj3.ltrans0.ltrans.o
+main                                              /tmp/ccFAbhEf.ltrans0.ltrans.o
                                                   CMakeFiles/atmega128a.elf.dir/main.c.obj (symbol from plugin)
                                                   /media/user12/data/avr-gcc/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr51/crtatmega128a.o
+millis                                            CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj (symbol from plugin)
+                                                  CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
+millisInit                                        CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj (symbol from plugin)
+                                                  CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
 pwm_8bit_init                                     CMakeFiles/atmega128a.elf.dir/src/driver/pwm_8bit.c.obj (symbol from plugin)
-                                                  CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
 uart0_int_init                                    CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj (symbol from plugin)
-                                                  CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj (symbol from plugin)
 uart0_int_receive                                 CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj (symbol from plugin)
 uart0_int_transmit                                CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj (symbol from plugin)

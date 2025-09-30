@@ -4,7 +4,9 @@
 #include"../driver/fnd.h"
 #include"../driver/uart0.h"
 #include"../driver/uart0_int.h"
-
+#include"../driver/pwm_8bit.h"
+#include"../driver/delay_ms.h"
+#include"../driver/millis.h"
 
 void apInit();
 void apMain();

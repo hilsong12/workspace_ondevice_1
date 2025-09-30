@@ -202,6 +202,30 @@ src/driver/button.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/button.c.s
 .PHONY : src/driver/button.c.s
 
+src/driver/delay_ms.obj: src/driver/delay_ms.c.obj
+.PHONY : src/driver/delay_ms.obj
+
+# target to build an object file
+src/driver/delay_ms.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj
+.PHONY : src/driver/delay_ms.c.obj
+
+src/driver/delay_ms.i: src/driver/delay_ms.c.i
+.PHONY : src/driver/delay_ms.i
+
+# target to preprocess a source file
+src/driver/delay_ms.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.i
+.PHONY : src/driver/delay_ms.c.i
+
+src/driver/delay_ms.s: src/driver/delay_ms.c.s
+.PHONY : src/driver/delay_ms.s
+
+# target to generate assembly for a file
+src/driver/delay_ms.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.s
+.PHONY : src/driver/delay_ms.c.s
+
 src/driver/fnd.obj: src/driver/fnd.c.obj
 .PHONY : src/driver/fnd.obj
 
@@ -249,6 +273,30 @@ src/driver/led.s: src/driver/led.c.s
 src/driver/led.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/led.c.s
 .PHONY : src/driver/led.c.s
+
+src/driver/millis.obj: src/driver/millis.c.obj
+.PHONY : src/driver/millis.obj
+
+# target to build an object file
+src/driver/millis.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj
+.PHONY : src/driver/millis.c.obj
+
+src/driver/millis.i: src/driver/millis.c.i
+.PHONY : src/driver/millis.i
+
+# target to preprocess a source file
+src/driver/millis.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.i
+.PHONY : src/driver/millis.c.i
+
+src/driver/millis.s: src/driver/millis.c.s
+.PHONY : src/driver/millis.s
+
+# target to generate assembly for a file
+src/driver/millis.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.s
+.PHONY : src/driver/millis.c.s
 
 src/driver/pwm_8bit.obj: src/driver/pwm_8bit.c.obj
 .PHONY : src/driver/pwm_8bit.obj
@@ -340,12 +388,18 @@ help:
 	@echo "... src/driver/button.obj"
 	@echo "... src/driver/button.i"
 	@echo "... src/driver/button.s"
+	@echo "... src/driver/delay_ms.obj"
+	@echo "... src/driver/delay_ms.i"
+	@echo "... src/driver/delay_ms.s"
 	@echo "... src/driver/fnd.obj"
 	@echo "... src/driver/fnd.i"
 	@echo "... src/driver/fnd.s"
 	@echo "... src/driver/led.obj"
 	@echo "... src/driver/led.i"
 	@echo "... src/driver/led.s"
+	@echo "... src/driver/millis.obj"
+	@echo "... src/driver/millis.i"
+	@echo "... src/driver/millis.s"
 	@echo "... src/driver/pwm_8bit.obj"
 	@echo "... src/driver/pwm_8bit.i"
 	@echo "... src/driver/pwm_8bit.s"

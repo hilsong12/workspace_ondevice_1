@@ -19,6 +19,12 @@
 },
 {
   "directory": "/home/user12/workspace_ondevice_1/avr/atmega128a/build",
+  "command": "/media/user12/data/avr-gcc/bin/avr-gcc -DF_CPU=16000000UL -I/home/user12/workspace_ondevice_1/avr/atmega128a/src -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/ap -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/bsp -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/hw -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common/hw/include -mmcu=atmega128a -DF_CPU=16000000UL -Os -g -std=gnu11 -fdata-sections -ffunction-sections -MMD -flto -fno-fat-lto-objects -Wall -Os -g3 -o CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj -c /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/delay_ms.c",
+  "file": "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/delay_ms.c",
+  "output": "CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj"
+},
+{
+  "directory": "/home/user12/workspace_ondevice_1/avr/atmega128a/build",
   "command": "/media/user12/data/avr-gcc/bin/avr-gcc -DF_CPU=16000000UL -I/home/user12/workspace_ondevice_1/avr/atmega128a/src -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/ap -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/bsp -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/hw -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common/hw/include -mmcu=atmega128a -DF_CPU=16000000UL -Os -g -std=gnu11 -fdata-sections -ffunction-sections -MMD -flto -fno-fat-lto-objects -Wall -Os -g3 -o CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj -c /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.c",
   "file": "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.c",
   "output": "CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj"
@@ -28,6 +34,12 @@
   "command": "/media/user12/data/avr-gcc/bin/avr-gcc -DF_CPU=16000000UL -I/home/user12/workspace_ondevice_1/avr/atmega128a/src -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/ap -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/bsp -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/hw -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common/hw/include -mmcu=atmega128a -DF_CPU=16000000UL -Os -g -std=gnu11 -fdata-sections -ffunction-sections -MMD -flto -fno-fat-lto-objects -Wall -Os -g3 -o CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj -c /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c",
   "file": "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c",
   "output": "CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj"
+},
+{
+  "directory": "/home/user12/workspace_ondevice_1/avr/atmega128a/build",
+  "command": "/media/user12/data/avr-gcc/bin/avr-gcc -DF_CPU=16000000UL -I/home/user12/workspace_ondevice_1/avr/atmega128a/src -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/ap -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/bsp -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/hw -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common -I/home/user12/workspace_ondevice_1/avr/atmega128a/src/common/hw/include -mmcu=atmega128a -DF_CPU=16000000UL -Os -g -std=gnu11 -fdata-sections -ffunction-sections -MMD -flto -fno-fat-lto-objects -Wall -Os -g3 -o CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj -c /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/millis.c",
+  "file": "/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/millis.c",
+  "output": "CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj"
 },
 {
   "directory": "/home/user12/workspace_ondevice_1/avr/atmega128a/build",

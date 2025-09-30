@@ -5,8 +5,11 @@ CMakeFiles/atmega128a.elf.dir/main.c.obj: /home/user12/workspace_ondevice_1/avr/
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/delay_ms.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/millis.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0_int.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/ap/ap.h
@@ -15,8 +18,11 @@ CMakeFiles/atmega128a.elf.dir/src/ap/ap.c.obj: /home/user12/workspace_ondevice_1
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/delay_ms.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/millis.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0_int.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/ap/ap.h
@@ -25,6 +31,10 @@ CMakeFiles/atmega128a.elf.dir/src/driver/button.c.obj: /home/user12/workspace_on
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.h
 
+CMakeFiles/atmega128a.elf.dir/src/driver/delay_ms.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/delay_ms.c \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/delay_ms.h
+
 CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.c \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.h
@@ -32,6 +42,10 @@ CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.obj: /home/user12/workspace_ondev
 CMakeFiles/atmega128a.elf.dir/src/driver/led.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.h
+
+CMakeFiles/atmega128a.elf.dir/src/driver/millis.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/millis.c \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
+  /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/millis.h
 
 CMakeFiles/atmega128a.elf.dir/src/driver/pwm_8bit.c.obj: /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.c \
   /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h \
@@ -48,32 +62,40 @@ CMakeFiles/atmega128a.elf.dir/src/driver/uart0_int.c.obj: /home/user12/workspace
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0_int.c:
 
-/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.h:
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.c:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.c:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.c:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/main.c:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.h:
 
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/delay_ms.c:
+
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/common/def.h:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.h:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.h:
 
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/delay_ms.h:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.c:
+
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.h:
+
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/millis.c:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.h:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0_int.h:
 
+/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/millis.h:
+
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/ap/ap.h:
 
 /home/user12/workspace_ondevice_1/avr/atmega128a/src/ap/ap.c:
-
-/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/button.c:
-
-/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/fnd.c:
-
-/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/led.c:
-
-/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/uart0.c:
-
-/home/user12/workspace_ondevice_1/avr/atmega128a/src/driver/pwm_8bit.c:

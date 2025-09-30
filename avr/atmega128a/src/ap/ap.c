@@ -342,46 +342,99 @@
 ///--------------------------------유아트와 모터 연결-----------
 
 
+// void apInit()
+// {
+//     uart0_int_init();
+//     pwm_8bit_init();
+// }
+
+
+
+// void apMain()
+// {
+
+//     OCR0 =0;
+//     char data;
+
+//     while(1)
+//     {
+//         data = UART0_Receive();
+//         UART_Tramsmit(data);
+//         int i = data -'0';
+
+//         if(data == '0')
+//         { OCR0 =0; }
+        
+//         if(data == '1') 
+//         {OCR0 =127;}
+        
+//         if(data == '2') 
+//         {OCR0 =255;}
+
+
+//     }
+// }
+
+//--------------------------  delay 함수 만들기--------------
+
+// void apInit()
+// {
+  
+// }
+
+
+// void apMain()
+// {
+//     DDRD =0xff;
+
+//     delayInit();
+
+//     while (1)
+//     {
+//         PORTD =0x00;
+//         delay_ms(300);
+//         PORTD =0xff;
+//         delay_ms(300);
+
+//     }
+    
+
+// }
+//----------------------------------led가 따로 움직인다. ----------------------------
+
+
 void apInit()
 {
-    uart0_int_init();
-    pwm_8bit_init();
+  
 }
-
 
 
 void apMain()
-{
+{   
+    DDRD |= (1<<PD7) |(1<<PD0);
 
-    OCR0 =0;
-    char data;
+    millisInit();
+    uint32_t prevTime1 = 0;
+    uint32_t prevTime2 = 0;
 
-    while(1)
+    while (1)
     {
-        data = UART0_Receive();
-        UART_Tramsmit(data);
-        int i = data -'0';
+        uint32_t now = millis();
 
-        if(data == '0')
-        { OCR0 =0; }
-        
-        if(data == '1') 
-        {OCR0 =127;}
-        
-        if(data == '2') 
-        {OCR0 =255;}
+        //1000ms 토글
+        if(now - prevTime1 >= 1000)
+        {
+            prevTime1 = now;
+            PORTD ^= (1<<PORT7);
+        }
 
+        //2000ms 토글
+        if(now- prevTime2 >= 2000)
+        {
+            prevTime2 =now;
+            PORTD ^= (1<<PORTD0);
+        }
 
     }
+    
 }
-
-//--------------------------
-
-
-
-
-
-
-
-
-
