@@ -250,6 +250,102 @@ src/driver/fnd.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/fnd.c.s
 .PHONY : src/driver/fnd.c.s
 
+src/driver/i2c.obj: src/driver/i2c.c.obj
+.PHONY : src/driver/i2c.obj
+
+# target to build an object file
+src/driver/i2c.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/i2c.c.obj
+.PHONY : src/driver/i2c.c.obj
+
+src/driver/i2c.i: src/driver/i2c.c.i
+.PHONY : src/driver/i2c.i
+
+# target to preprocess a source file
+src/driver/i2c.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/i2c.c.i
+.PHONY : src/driver/i2c.c.i
+
+src/driver/i2c.s: src/driver/i2c.c.s
+.PHONY : src/driver/i2c.s
+
+# target to generate assembly for a file
+src/driver/i2c.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/i2c.c.s
+.PHONY : src/driver/i2c.c.s
+
+src/driver/i2c_lcd.obj: src/driver/i2c_lcd.c.obj
+.PHONY : src/driver/i2c_lcd.obj
+
+# target to build an object file
+src/driver/i2c_lcd.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/i2c_lcd.c.obj
+.PHONY : src/driver/i2c_lcd.c.obj
+
+src/driver/i2c_lcd.i: src/driver/i2c_lcd.c.i
+.PHONY : src/driver/i2c_lcd.i
+
+# target to preprocess a source file
+src/driver/i2c_lcd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/i2c_lcd.c.i
+.PHONY : src/driver/i2c_lcd.c.i
+
+src/driver/i2c_lcd.s: src/driver/i2c_lcd.c.s
+.PHONY : src/driver/i2c_lcd.s
+
+# target to generate assembly for a file
+src/driver/i2c_lcd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/i2c_lcd.c.s
+.PHONY : src/driver/i2c_lcd.c.s
+
+src/driver/lcd_4bit.obj: src/driver/lcd_4bit.c.obj
+.PHONY : src/driver/lcd_4bit.obj
+
+# target to build an object file
+src/driver/lcd_4bit.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/lcd_4bit.c.obj
+.PHONY : src/driver/lcd_4bit.c.obj
+
+src/driver/lcd_4bit.i: src/driver/lcd_4bit.c.i
+.PHONY : src/driver/lcd_4bit.i
+
+# target to preprocess a source file
+src/driver/lcd_4bit.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/lcd_4bit.c.i
+.PHONY : src/driver/lcd_4bit.c.i
+
+src/driver/lcd_4bit.s: src/driver/lcd_4bit.c.s
+.PHONY : src/driver/lcd_4bit.s
+
+# target to generate assembly for a file
+src/driver/lcd_4bit.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/lcd_4bit.c.s
+.PHONY : src/driver/lcd_4bit.c.s
+
+src/driver/lcd_8bit.obj: src/driver/lcd_8bit.c.obj
+.PHONY : src/driver/lcd_8bit.obj
+
+# target to build an object file
+src/driver/lcd_8bit.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/lcd_8bit.c.obj
+.PHONY : src/driver/lcd_8bit.c.obj
+
+src/driver/lcd_8bit.i: src/driver/lcd_8bit.c.i
+.PHONY : src/driver/lcd_8bit.i
+
+# target to preprocess a source file
+src/driver/lcd_8bit.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/lcd_8bit.c.i
+.PHONY : src/driver/lcd_8bit.c.i
+
+src/driver/lcd_8bit.s: src/driver/lcd_8bit.c.s
+.PHONY : src/driver/lcd_8bit.s
+
+# target to generate assembly for a file
+src/driver/lcd_8bit.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atmega128a.elf.dir/build.make CMakeFiles/atmega128a.elf.dir/src/driver/lcd_8bit.c.s
+.PHONY : src/driver/lcd_8bit.c.s
+
 src/driver/led.obj: src/driver/led.c.obj
 .PHONY : src/driver/led.obj
 
@@ -394,6 +490,18 @@ help:
 	@echo "... src/driver/fnd.obj"
 	@echo "... src/driver/fnd.i"
 	@echo "... src/driver/fnd.s"
+	@echo "... src/driver/i2c.obj"
+	@echo "... src/driver/i2c.i"
+	@echo "... src/driver/i2c.s"
+	@echo "... src/driver/i2c_lcd.obj"
+	@echo "... src/driver/i2c_lcd.i"
+	@echo "... src/driver/i2c_lcd.s"
+	@echo "... src/driver/lcd_4bit.obj"
+	@echo "... src/driver/lcd_4bit.i"
+	@echo "... src/driver/lcd_4bit.s"
+	@echo "... src/driver/lcd_8bit.obj"
+	@echo "... src/driver/lcd_8bit.i"
+	@echo "... src/driver/lcd_8bit.s"
 	@echo "... src/driver/led.obj"
 	@echo "... src/driver/led.i"
 	@echo "... src/driver/led.s"

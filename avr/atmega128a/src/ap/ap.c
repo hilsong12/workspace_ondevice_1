@@ -403,6 +403,81 @@
 //----------------------------------led가 따로 움직인다. ----------------------------
 
 
+// void apInit()
+// {
+  
+// }
+
+
+// void apMain()
+// {   
+//     DDRD |= (1<<PD7) |(1<<PD0);
+
+//     millisInit();
+//     uint32_t prevTime1 = 0;
+//     uint32_t prevTime2 = 0;
+
+//     while (1)
+//     {
+//         uint32_t now = millis();
+
+//         //1000ms 토글
+//         if(now - prevTime1 >= 1000)
+//         {
+//             prevTime1 = now;
+//             PORTD ^= (1<<PORT7);
+//         }
+
+//         //2000ms 토글
+//         if(now- prevTime2 >= 2000)
+//         {
+//             prevTime2 =now;
+//             PORTD ^= (1<<PORTD0);
+//         }
+
+//     }
+    
+// }
+//----------------------------------
+// void apInit()
+// {
+  
+// }
+
+
+// void apMain()
+// {
+//     LCD_Init();
+
+//     // LCD_GotoXY(0,0);
+//     // LCD_WriteString("Hello AVR");
+//     // LCD_GotoXY(1,0);
+//     // LCD_WriteString("Hello LCD");
+
+//     char buff[30];
+
+//     sprintf(buff,"Hello AVR");
+//     LCD_WriteStringXY(0,0,buff);
+
+//     int count = 0;
+
+//     while (1)
+//     {
+//           sprintf(buff,"Hello AVR");
+//          LCD_WriteStringXY(0,0,buff);
+//         sprintf(buff, "Count : %d",count++);
+//         LCD_WriteStringXY(1,0,buff);
+//         _delay_ms(1000);
+//          sprintf(buff,"BYE   AVR");
+//          LCD_WriteStringXY(0,0,buff);
+//         sprintf(buff, "Count : %d",count++);
+//         LCD_WriteStringXY(1,0,buff);
+//         _delay_ms(1000);
+
+//     }
+    
+// }
+//------------------------------------------------
 void apInit()
 {
   
@@ -410,30 +485,17 @@ void apInit()
 
 
 void apMain()
-{   
-    DDRD |= (1<<PD7) |(1<<PD0);
+{
+    LCD_Init();
 
-    millisInit();
-    uint32_t prevTime1 = 0;
-    uint32_t prevTime2 = 0;
+    LCD_GotoXY(0,0);
+    LCD_WriteString("Hello i2c");
+    LCD_GotoXY(1,0);
+    LCD_WriteString("Hello i2c LCD");
+
 
     while (1)
     {
-        uint32_t now = millis();
-
-        //1000ms 토글
-        if(now - prevTime1 >= 1000)
-        {
-            prevTime1 = now;
-            PORTD ^= (1<<PORT7);
-        }
-
-        //2000ms 토글
-        if(now- prevTime2 >= 2000)
-        {
-            prevTime2 =now;
-            PORTD ^= (1<<PORTD0);
-        }
 
     }
     

@@ -717,31 +717,45 @@
 //64분주 50hz 주파수 생성    
 //계산 결과  top =4999
 
+// #include "./src/ap/ap.h"     
+
+// int main()
+// {
+ 
+//   DDRB |= (1<<PB5); // PWM 신호가 나갈 PORT 출력 선언
+
+//   TCCR1A |= (1<<COM1A1) |( 1<<WGM11);
+//   TCCR1B |= (1<<WGM13) | (1<<WGM12) | ( 1<<CS11) |(1<<CS10) ;
+//   //TCCR1C |=  
+
+//   ICR1 =4999;
+//   //25%    1250-> 약 50%, 1875 -> 약 75% width
+
+
+//   while (1)
+//   {
+//     OCR1A =250;
+//     _delay_ms(1000);
+//     OCR1A =375;
+//    _delay_ms(1000);
+//     OCR1A =500;
+//     _delay_ms(1000);
+
+//   }
+  
+
+// }
+
+////---------------------------------tcnt 값을 ㅇ
+
+
 #include "./src/ap/ap.h"     
 
 int main()
 {
- 
-  DDRB |= (1<<PB5); // PWM 신호가 나갈 PORT 출력 선언
+  apInit();
+  apMain();
 
-  TCCR1A |= (1<<COM1A1) |( 1<<WGM11);
-  TCCR1B |= (1<<WGM13) | (1<<WGM12) | ( 1<<CS11) |(1<<CS10) ;
-  //TCCR1C |=  
-
-  ICR1 =4999;
-  OCR1A = 250; //25%    1250-> 약 50%, 1875 -> 약 75% width
-
-
-  while (1)
-  {
-    OCR1A =250;
-    _delay_ms(1000);
-    OCR1A =375;
-   _delay_ms(1000);
-    OCR1A =500;
-    _delay_ms(1000);
-
-  }
   
 
 }
