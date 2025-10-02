@@ -17,7 +17,7 @@
 void LCD_Data4Bit(uint8_t data);
 void LCD_EnablePin();
 void LCD_WriteCommand(uint8_t command);
-void LCD_WriteDate(char charData);
+void LCD_WriteData(char charData);
 void LCD_GotoXY(uint8_t row, uint8_t col);
 void LCD_WriteString(char* string);
 void LCD_WriteStringXY(uint8_t row, uint8_t col, char *string);

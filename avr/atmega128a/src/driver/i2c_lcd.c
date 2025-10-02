@@ -33,7 +33,7 @@ void LCD_WriteCommand(uint8_t command)
     LCD_Data4Bit(command);           // 명령어 데이터를 데이터핀에 출력
 }
 
-void LCD_WriteDate(char charData)
+void LCD_WriteData(char charData)
 {
     I2C_LCD_DATA |= (1<<LCD_RS); //
     I2C_LCD_DATA &= ~(1<<LCD_RW);           
