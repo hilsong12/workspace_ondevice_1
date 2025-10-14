@@ -1,0 +1,84 @@
+
+#include <stdint.h>
+
+#define RCC_CR_HSEON			(1<<16)  //  오실레이터 HSE ON
+#define RCC_CR_HSERDY			(1<<17)  //	HSE Ready 플래그
+#define RCC_CR_PLLON			(1<<24)  //	PLL ON
+#define RCC_CR_PLLRDY			(1<<25)  //	PLL Flag
+
+#define RCC_PLLCFGR_PLLM_Pos	0   	 //PLLM position (위치)
+#define RCC_PLLCFGR_PLLN_Pos	6   	 //PLLN position (위치)
+#define RCC_PLLCFGR_PLLP_Pos	16  	 //PLLP position (위치)
+#define RCC_PLLCFGR_PLLSRC_Pos  24       //PLLSRC position(위치)
+
+#define FLASH_ACR_LATENCY_Pos   0
+#define FLASH_ACR_LATENCY_3WS   (3<<FLASH_ACR_LATENCY_Pos)   // 3 wait state 설정
+
+#define RCC_CFGR_SW_Pos			0		  //system clock switch position
+#define RCC_CFGR_SW_PLL         (2<<RCC_CFGR_SW_Pos)
+#define RCC_CFGR_HPRE_Pos		4         //AHB Prescaler
+#define RCC_CFGR_PPRE1_Pos		10	      //APB1 prescaler
+#define RCC_CFGR_PPRE2_Pos      13        //APB2 prescaler
+
+#define RCC_AHB1ENR_GPIOAEN     (1<<0)  //GPIOA 클럭 활성화
+#define GPIOA_MODER_MODER5      (1<<(5*2)) //PA5 출력설정
+#define GPIOA_ODR_ODR5          (1<<5)     //출력 데이터 비트
+
+#define RCC_BASE                 0x40023800
+#define FLASH_BASE               0x40023C00
+#define GPIOA_BASE               0X40020000
+
+#define RCC_CR         (*(volatile uint32_t *)(RCC_BASE + 0x00))
+#define RCC_PLLCFGR    (*(volatile uint32_t *)(RCC_BASE + 0x04))
+#define RCC_CFGR       (*(volatile uint32_t *)(RCC_BASE + 0x08))
+#define FLASH_ACR      (*(volatile uint32_t *)(FLASH_BASE + 0x00))
+#define GPIOA_MODER    (*(volatile uint32_t *)(GPIOA_BASE + 0x00))
+#define GPIOA_ODR      (*(volatile uint32_t *)(GPIOA_BASE + 0x14))
+#define RCC_AHB1ENR    (*(volatile uint32_t *)(RCC_BASE + 0x30))
+
+void SystemClockConfig()
+{
+	//HSE 활성화
+	RCC_CR |= RCC_CR_HSEON;             // HSE on
+	while(!(RCC_CR & RCC_CR_HSERDY));   // Flag 대기
+
+	//PLL 설정
+	//HSE -> 8MHz, 시스템클럭 100MHz
+	RCC_PLLCFGR = (4 << RCC_PLLCFGR_PLLM_Pos) |     //PLLM =4
+				  (200 << RCC_PLLCFGR_PLLN_Pos) |    //PLLN=200
+				  (0x1 << RCC_PLLCFGR_PLLP_Pos)  |   //PLLP=4
+				  (1 << RCC_PLLCFGR_PLLSRC_Pos);     //PLL 소스 =HSE
+
+	//PLL 활성화
+	RCC_CR |= RCC_CR_PLLON;
+	while(!(RCC_CR & RCC_CR_PLLRDY)); //flag 대기
+
+	// AHB, APB1,APB2 분주기 설정
+	RCC_CFGR |= (0 << RCC_CFGR_HPRE_Pos); //AHB -> 1(sysclk 그대로 사용)
+	RCC_CFGR |= (5 << RCC_CFGR_PPRE1_Pos); // APB1 -> 4 (25MHz)
+	RCC_CFGR |= (4 << RCC_CFGR_PPRE2_Pos); // APB2 -> 2 (50MHz)
+
+    //플래시 메모리 설정(Latency 조정)
+	FLASH_ACR |= FLASH_ACR_LATENCY_3WS; // 100MHz 동작시 3wait 필요
+
+	//시스템 클럭소스 PLL 선택
+	RCC_CFGR |= RCC_CFGR_SW_PLL;
+	while((RCC_CFGR & RCC_CFGR_SW_PLL) != RCC_CFGR_SW_PLL);
+
+}
+
+
+int main(void)
+{
+	SystemClockConfig();
+
+	RCC_AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // GPIOA 클럭 활성화
+	GPIOA_MODER |= GPIOA_MODER_MODER5;  //출력 설정
+
+
+	while(1)
+	{
+		GPIOA_ODR ^= GPIOA_ODR_ODR5; //  On
+		for (volatile int i=0; i<1000000; i++);
+	}
+}

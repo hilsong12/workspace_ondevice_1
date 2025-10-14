@@ -1,0 +1,10 @@
+16:04:17 **** Incremental Build of configuration Debug for project 02_BUTTON2 ****
+make -j16 all 
+arm-none-eabi-size  02_BUTTON2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6344	     36	   1572	   7952	   1f10	02_BUTTON2.elf
+Finished building: default.size.stdout
+ 
+
+16:04:18 Build Finished. 0 errors, 0 warnings. (took 144ms)
+

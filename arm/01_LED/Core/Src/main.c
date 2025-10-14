@@ -23,10 +23,13 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "led.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
 
 /* USER CODE END PTD */
 
@@ -88,16 +91,18 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
+  LED_CONTROL led1 = {GPIOA, GPIO_PIN_5, 500, LED_OFF,0};
+  LED_CONTROL led2 = {GPIOA, GPIO_PIN_6, 700, LED_OFF,0};
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET );
-	  HAL_Delay(100);
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET );
-	  HAL_Delay(100);
+	  updateLed(&led1);
+	  updateLed(&led2);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
