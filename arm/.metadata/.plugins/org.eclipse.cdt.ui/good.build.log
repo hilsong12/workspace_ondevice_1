@@ -1,10 +1,10 @@
-20:31:00 **** Incremental Build of configuration Debug for project good ****
+20:23:37 **** Incremental Build of configuration Debug for project good ****
 make -j16 all 
 arm-none-eabi-size  good.elf 
    text	   data	    bss	    dec	    hex	filename
-   6972	     76	   1572	   8620	   21ac	good.elf
+  11764	     80	   1720	  13564	   34fc	good.elf
 Finished building: default.size.stdout
  
 
-20:31:00 Build Finished. 0 errors, 0 warnings. (took 84ms)
+20:23:37 Build Finished. 0 errors, 0 warnings. (took 139ms)
 

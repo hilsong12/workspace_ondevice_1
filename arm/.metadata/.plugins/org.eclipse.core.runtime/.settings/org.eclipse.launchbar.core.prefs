@@ -2,7 +2,7 @@ LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
 activeLaunchTarget=null\:---
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:04_TIMER_SW Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:03_UART_TX_INT Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:03_UART_RX_DMA Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:good Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:01_LED\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:01_LED\ Debug/activeLaunchTarget=null\:---
@@ -70,6 +70,7 @@ org.eclipse.launchbar.core.descriptorType.default\:04_TIMER\ Debug/activeLaunchM
 org.eclipse.launchbar.core.descriptorType.default\:04_TIMER\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:04_TIMER_SW\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:04_TIMER_SW\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:good\ Debug\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:good\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:good\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:test\ Debug/activeLaunchMode=run

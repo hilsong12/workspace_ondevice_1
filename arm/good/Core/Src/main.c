@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -25,6 +26,7 @@
 
 #include "led.h"
 #include "button.h"
+#include "fnd.h"
 
 /* USER CODE END Includes */
 
@@ -49,6 +51,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+uint8_t button1;
+uint8_t button2;
+uint8_t button3;
+
+uint8_t rxData1;
+uint8_t rxData2;
 
 /* USER CODE END PV */
 
@@ -56,14 +64,33 @@
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
+
 uint32_t millis()
 {
 	return HAL_GetTick();
 }
 
-uint8_t button1;
-uint8_t button2;
-uint8_t button3;
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart->Instance == USART2)
+	{
+	HAL_UART_Receive_IT(&huart2, &rxData2, sizeof(rxData2));
+//	HAL_UART_Transmit_IT(&huart1, &rxData2, sizeof(rxData2));
+//	HAL_UART_Transmit(&huart1, &rxData2, sizeof(rxData2), 100);
+	HAL_UART_Transmit(&huart1, &rxData2, sizeof(rxData2), HAL_MAX_DELAY );
+	}
+
+	else if(huart->Instance == USART1)
+		{
+		HAL_UART_Receive_IT(&huart1, &rxData1, sizeof(rxData1));
+//		HAL_UART_Transmit_IT(&huart2, &rxData1, sizeof(rxData1));
+//		 HAL_UART_Transmit(&huart2, &rxData1, sizeof(rxData1), 100);
+		 HAL_UART_Transmit(&huart2, &rxData1, sizeof(rxData1), HAL_MAX_DELAY);
+		}
+
+}
+
 
 
 /* USER CODE END PFP */
@@ -102,7 +129,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+
+
+
+  HAL_UART_Receive_IT(&huart2, &rxData2, 1);
+  HAL_UART_Receive_IT(&huart1, &rxData1, 1);
 
 
 
@@ -112,26 +146,57 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  uint8_t i = rxData1 -'0';
 
-	  button1 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4);
-	  button2 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
-	  button3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
+	  if (rxData1 >= '0' && rxData1 <= '9')
+	     {
+	              switch ( i )
+	          {
 
-	  	 if(!button1)
-	  	  	{
-	  	  	  ledRightShift(8);
-	  	  	  }
+	          case  0 : displayNumber(0); break;
+	          case  1 : displayNumber(1); break;
+	          case  2:  displayNumber(2); break;
+	          case  3 : displayNumber(3); break;
+	          case  4 : displayNumber(4); break;
+	          case  5 : displayNumber(5); break;
+	          case  6 : displayNumber(6); break;
+	          case  7 : displayNumber(7); break;
+	          case  8 : displayNumber(8); break;
+	          case  9:  displayNumber(9); break;
+	          }
+	     }
 
-	  	 if(!button2)
-	  	  	 {
-	  	  	  ledLeftShift(8);
-	  	  	  }
 
-	  	  if(!button3)
-	  	  	 {
-	  	  	   ledFlower1(8);
-	  	  	  ledFlower2(8);
-	  	  	   }
+
+
+
+//	  for (int i = 0; i < 10; i++) {
+//	              displayNumber(i);     // FND에 숫자 표시
+//	              HAL_Delay(500);       // 0.5초 대기
+//	          }
+//
+
+
+//	  button1 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4);
+//	  button2 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
+//	  button3 = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
+//
+//	  	 if(!button1)
+//	  	  	{
+//	  	  	  ledRightShift(8);
+//	  	  	  }
+//
+//	  	 if(!button2)
+//	  	  	 {
+//	  	  	  ledLeftShift(8);
+//	  	  	  }
+//
+//	  	  if(!button3)
+//	  	  	 {
+//	  	  	   ledFlower1(8);
+//	  	  	  ledFlower2(8);
+//	  	  	   }
+
 
   	}
 

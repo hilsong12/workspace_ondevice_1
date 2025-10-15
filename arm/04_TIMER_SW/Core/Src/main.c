@@ -112,7 +112,7 @@ int main(void)
     // led2 control
     if(softTimer_IsTimeOut(swTimerID2) == SET)
     {
-      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);  // LED1 토글
+      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);  // LED12 토글
       softTimer_Reset(swTimerID2);            // 타이머 리셋
     }
     // led3 control
