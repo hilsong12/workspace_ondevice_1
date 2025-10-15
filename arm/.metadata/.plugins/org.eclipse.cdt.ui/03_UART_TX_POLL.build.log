@@ -1,0 +1,10 @@
+11:32:51 **** Incremental Build of configuration Debug for project 03_UART_TX_POLL ****
+make -j16 all 
+arm-none-eabi-size  03_UART_TX_POLL.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8404	     12	   1644	  10060	   274c	03_UART_TX_POLL.elf
+Finished building: default.size.stdout
+ 
+
+11:32:51 Build Finished. 0 errors, 0 warnings. (took 77ms)
+

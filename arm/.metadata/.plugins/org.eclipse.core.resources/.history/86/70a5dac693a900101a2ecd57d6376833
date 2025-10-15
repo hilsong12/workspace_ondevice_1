@@ -1,0 +1,8 @@
+
+
+#include "swTimer.h"
+
+
+//소프트웨어 타이머 배열 선언
+
+swTimer_tbl  softTimer[TIMER_COUNT] = {0};

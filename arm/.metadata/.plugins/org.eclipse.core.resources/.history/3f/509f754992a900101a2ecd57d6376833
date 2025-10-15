@@ -1,0 +1,12 @@
+
+
+#ifndef INC_SWTIMER_H_
+#define INC_SWTIMER_H_
+
+
+#include "stdint.h"
+#include "stdbool.h"
+
+
+
+#endif /* INC_SWTIMER_H_ */

@@ -1,0 +1,46 @@
+
+
+#include "swTimer.h"
+
+
+//소프트웨어 타이머 배열 선언
+
+swTimer_tbl  softTimer[TIMER_COUNT] = {0};
+
+
+// 소프트웨어 타이머 초기화
+// TimerID : 사용할 타이머 ID
+// time : 설정 할 시간 ( 단위 : Tick, ms)
+
+void softTimer_ISR()//주기적으로 호출할 인터럽트 서비스루틴
+{
+
+}
+
+void softTimer_Init(swTimerID_tbl timerID, uint32_t time)  //소프트타이머 초기화
+{
+
+	if(timerID < TIMER_COUNT)
+	{
+		softTimer[timerID].time = 0;
+		softTimer[timerID].isRunning = true;
+		softTimer[timerID].setTime = time;
+		softTimer[timerID].timeOut = false;
+	}
+
+}
+
+bool softTimer_GetStatus(swTimerID_tbl timeID)             // 타이머 동작 상태 확인
+{
+
+}
+
+bool softTimer_IsTimeOut(swTimerID_tbl timeID)             // 타이머 만료 여부 확인
+{
+
+}
+
+void softTimer_Reset(swTimerID_tbl timerID) 				//타이머 리셋
+{
+
+}
