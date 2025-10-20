@@ -1085,3 +1085,99 @@ arm-none-eabi-size  UART5.elf
   23100	    256	   2216	  25572	   63e4	UART5.elf
 Finished building: default.size.stdout
  
+16:38:36 **** Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-gcc -o "UART6.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/user12/workspace_ondevice_1/arm/UART6/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART6.elf
+ 
+arm-none-eabi-size  UART6.elf 
+arm-none-eabi-objdump -h -S UART6.elf  > "UART6.list"
+   text	   data	    bss	    dec	    hex	filename
+  23100	    256	   2216	  25572	   63e4	UART6.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART6.list
+ 
+16:38:53 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23100	    256	   2216	  25572	   63e4	UART6.elf
+Finished building: default.size.stdout
+ 
+16:38:58 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23100	    256	   2216	  25572	   63e4	UART6.elf
+Finished building: default.size.stdout
+ 
+16:39:08 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23100	    256	   2216	  25572	   63e4	UART6.elf
+Finished building: default.size.stdout
+ 
+16:39:15 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23100	    256	   2216	  25572	   63e4	UART6.elf
+Finished building: default.size.stdout
+ 
+16:39:49 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23100	    256	   2216	  25572	   63e4	UART6.elf
+Finished building: default.size.stdout
+ 
+16:41:41 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23100	    256	   2216	  25572	   63e4	UART6.elf
+Finished building: default.size.stdout
+ 
+16:56:47 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/elevator.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/elevator.d" -MT"Core/Src/elevator.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/elevator.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/elevator.c:14:
+../Core/Inc/elevator.h:26:31: error: unknown type name 'uint8_t'
+   26 | void handleExternalButtonCall(uint8_t buttonCall, buttonUpDownCall call_dir);
+      |                               ^~~~~~~
+../Core/Inc/elevator.h:1:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /*
+make: *** [Core/Src/subdir.mk:64: Core/Src/elevator.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:56:50 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/elevator.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/elevator.d" -MT"Core/Src/elevator.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/elevator.o"
+In file included from ../Core/Src/elevator.c:14:
+../Core/Inc/elevator.h:26:31: error: unknown type name 'uint8_t'
+   26 | void handleExternalButtonCall(uint8_t buttonCall, buttonUpDownCall call_dir);
+      |                               ^~~~~~~
+../Core/Inc/elevator.h:1:1: note: 'uint8_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /*
+make: *** [Core/Src/subdir.mk:64: Core/Src/elevator.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:56:56 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/elevator.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/elevator.d" -MT"Core/Src/elevator.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/elevator.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "UART6.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/user12/workspace_ondevice_1/arm/UART6/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART6.elf
+ 
+arm-none-eabi-size  UART6.elf 
+arm-none-eabi-objdump -h -S UART6.elf  > "UART6.list"
+   text	   data	    bss	    dec	    hex	filename
+  23100	    256	   2216	  25572	   63e4	UART6.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART6.list
+ 
