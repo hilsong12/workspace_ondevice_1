@@ -1,0 +1,9 @@
+../Core/Src/elevator.c:39:20:is_moving_up	4	static
+../Core/Src/elevator.c:40:20:is_moving_down	4	static
+../Core/Src/elevator.c:48:6:elevator_init	24	static
+../Core/Src/elevator.c:85:13:start_move_if_needed	8	static
+../Core/Src/elevator.c:106:13:check_arrival	16	static
+../Core/Src/elevator.c:154:7:handleExternalButtonCall	16	static
+../Core/Src/elevator.c:272:6:read_fnd_floor	16	static
+../Core/Src/elevator.c:298:7:read_external_buttons	8	static
+../Core/Src/elevator.c:314:6:elevator_loop	16	static

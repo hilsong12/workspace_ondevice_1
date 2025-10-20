@@ -1,0 +1,2 @@
+../Core/Src/led.c:26:6:segNumOn	24	static
+../Core/Src/led.c:39:6:segNumOff	24	static

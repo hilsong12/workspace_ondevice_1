@@ -1,0 +1,10 @@
+../Core/Src/led.c:16:6:led1On	1
+../Core/Src/led.c:20:6:led1Off	1
+../Core/Src/led.c:26:6:ledOn	2
+../Core/Src/led.c:34:6:ledOff	2
+../Core/Src/led.c:41:6:ledToggle	1
+../Core/Src/led.c:47:6:ledLeftShift	3
+../Core/Src/led.c:61:6:ledLeftShift1	4
+../Core/Src/led.c:89:6:ledRightShift	3
+../Core/Src/led.c:104:6:ledFlower1	3
+../Core/Src/led.c:129:6:ledFlower2	3

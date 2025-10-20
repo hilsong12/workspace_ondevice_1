@@ -1,0 +1,6 @@
+../Core/Src/photosensor.c:46:6:ps_init	16	static
+../Core/Src/photosensor.c:61:15:ps_find_by_pin	24	static
+../Core/Src/photosensor.c:75:6:ps_on_exti	32	static
+../Core/Src/photosensor.c:120:6:ps_is_blocked	16	static
+../Core/Src/photosensor.c:130:6:ps_was_broken	16	static
+../Core/Src/photosensor.c:146:9:ps_any_broken	16	static

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;06_I2C_LCD/Core/Inc/i2c_LCD.h&apos; to &apos;I2C_LCD.h&apos;" description="Rename resource &apos;i2c_LCD.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/i2c_LCD.h" name="I2C_LCD.h" stamp="1760584569653" updateReferences="true"/>
+</session>

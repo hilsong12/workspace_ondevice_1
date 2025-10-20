@@ -1,0 +1,3 @@
+../Core/Src/elevator.c:7:6:Elevator_Init	16	static
+../Core/Src/elevator.c:14:6:Elevator_SetTarget	16	static
+../Core/Src/elevator.c:24:6:Elevator_Update	16	static

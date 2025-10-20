@@ -1,0 +1,4 @@
+../Core/Src/stepper.c:4:6:stepMotor	1
+../Core/Src/stepper.c:24:6:rotateSteps	3
+../Core/Src/stepper.c:44:6:rotateDegrees	1
+../Core/Src/stepper.c:52:6:rotateUntilSensor	4

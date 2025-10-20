@@ -1,0 +1,2 @@
+../Core/Src/sensor.c:9:6:Sensor_EXTI_Init	1
+../Core/Src/sensor.c:25:6:HAL_GPIO_EXTI_Callback	5

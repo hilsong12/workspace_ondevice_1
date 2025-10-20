@@ -1,0 +1,7 @@
+../Core/Src/stepper.c:22:20:stepMotor	1
+../Core/Src/stepper.c:30:6:stepper_init	1
+../Core/Src/stepper.c:36:6:stepper_set_dir	1
+../Core/Src/stepper.c:41:6:stepper_set_period_ms	3
+../Core/Src/stepper.c:50:6:stepper_stop	1
+../Core/Src/stepper.c:60:6:stepper_resume	1
+../Core/Src/stepper.c:66:6:stepper_task	4

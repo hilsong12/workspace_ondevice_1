@@ -20,6 +20,7 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
+#include "fnd.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -47,6 +48,7 @@
 
 uint8_t rxData1;
 uint8_t rxData2;
+uint8_t txData[] = "Hello STM32\r\n";
 
 /* USER CODE END PV */
 
@@ -57,16 +59,17 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(huart->Instance == USART2)
 	{
-	HAL_UART_Receive_IT(&huart2, &rxData2, sizeof(rxData2));
+	HAL_UART_Receive_IT(&huart2, &rxData2, 1);
 //	HAL_UART_Transmit_IT(&huart1, &rxData2, sizeof(rxData2));
-	HAL_UART_Transmit(&huart1, &rxData2, sizeof(rxData2), HAL_MAX_DELAY );
+	HAL_UART_Transmit(&huart1, &rxData2, sizeof(rxData2), 1 );
 	}
 
 	else if(huart->Instance == USART1)
 		{
 		HAL_UART_Receive_IT(&huart1, &rxData1, sizeof(rxData1));
 //		HAL_UART_Transmit_IT(&huart2, &rxData1, sizeof(rxData1));
-		 HAL_UART_Transmit(&huart2, &rxData1, sizeof(rxData1), HAL_MAX_DELAY);
+		 HAL_UART_Transmit(&huart2, &rxData1, sizeof(rxData1), 1);
+//		 HAL_UART_Transmit(&huart1, txData, sizeof(txData), 1);
 		}
 
 }
@@ -116,15 +119,32 @@ int main(void)
 HAL_UART_Receive_IT(&huart2, &rxData2, 1);
 HAL_UART_Receive_IT(&huart1, &rxData1, 1);
 
-char msg[] = "AT+NAMEljs\r\n";
-HAL_UART_Transmit(&huart1, msg, sizeof(msg), HAL_MAX_DELAY);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+	  uint8_t i = rxData1 -'0';
+
+	 	  if (rxData1 >= '0' && rxData1 <= '9')
+	 	     {
+	 	              switch ( i )
+	 	          {
+
+	 	          case  0 : displayNumber(0); break;
+	 	          case  1 : displayNumber(1); break;
+	 	          case  2:  displayNumber(2); break;
+	 	          case  3 : displayNumber(3); break;
+	 	          case  4 : displayNumber(4); break;
+	 	          case  5 : displayNumber(5); break;
+	 	          case  6 : displayNumber(6); break;
+	 	          case  7 : displayNumber(7); break;
+	 	          case  8 : displayNumber(8); break;
+	 	          case  9:  displayNumber(9); break;
+	 	          }
+
 
 
     /* USER CODE END WHILE */

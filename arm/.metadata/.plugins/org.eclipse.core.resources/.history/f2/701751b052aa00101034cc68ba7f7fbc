@@ -1,0 +1,6 @@
+
+#include"stepper.h"
+
+void stepMotor(uint8_t step);
+void rotateSteps(uint16_t steps, uint8_t direction);
+void rotateDegrees(uint16_t degrees, uint8_t direction);

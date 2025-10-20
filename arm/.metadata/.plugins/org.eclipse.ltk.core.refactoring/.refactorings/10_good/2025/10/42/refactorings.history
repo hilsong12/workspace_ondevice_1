@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;good/02_BUTTON1.ioc&apos; to &apos;good.ioc&apos;" description="Rename resource &apos;02_BUTTON1.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="02_BUTTON1.ioc" name="good.ioc" stamp="1760437791671" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;10_good/Core/Src/stepper.h&apos; to &apos;stepper.c&apos;" description="Rename resource &apos;stepper.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/stepper.h" name="stepper.c" stamp="1760683553289" updateReferences="true"/>
+</session>
