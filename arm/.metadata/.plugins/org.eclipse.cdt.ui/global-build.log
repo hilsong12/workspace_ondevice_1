@@ -1873,3 +1873,31 @@ arm-none-eabi-size  UART6.elf
   24644	    292	   2220	  27156	   6a14	UART6.elf
 Finished building: default.size.stdout
  
+09:46:53 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24644	    292	   2220	  27156	   6a14	UART6.elf
+Finished building: default.size.stdout
+ 
+10:05:54 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24644	    292	   2220	  27156	   6a14	UART6.elf
+Finished building: default.size.stdout
+ 
+11:07:16 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24644	    292	   2220	  27156	   6a14	UART6.elf
+Finished building: default.size.stdout
+ 
+11:07:22 **** Incremental Build of configuration Debug for project UART6 ****
+make -j16 all 
+arm-none-eabi-size  UART6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24644	    292	   2220	  27156	   6a14	UART6.elf
+Finished building: default.size.stdout
+ 
