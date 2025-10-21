@@ -21,6 +21,14 @@ typedef struct
 	GPIO_PinState offState;
 }LED_CONTROL;
 
+static LED_CONTROL externalButtonLed[4]=
+        {
+                {GPIOA, GPIO_PIN_15, GPIO_PIN_SET, GPIO_PIN_RESET},
+                {GPIOB, GPIO_PIN_7, GPIO_PIN_SET, GPIO_PIN_RESET},
+                {GPIOC, GPIO_PIN_11, GPIO_PIN_SET, GPIO_PIN_RESET},
+                {GPIOD, GPIO_PIN_2, GPIO_PIN_SET, GPIO_PIN_RESET},
+        };
+
 
 void segNumOn(uint8_t num);
 void segNumOff(uint8_t num);

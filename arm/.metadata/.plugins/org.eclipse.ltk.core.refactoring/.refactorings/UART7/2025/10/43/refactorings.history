@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;UART7/UART6.ioc&apos; to &apos;UART7.ioc&apos;" description="Rename resource &apos;UART6.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="UART6.ioc" name="UART7.ioc" stamp="1760948123253" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;UART7/UART6.ioc&apos; to &apos;UART7.ioc&apos;" description="Rename resource &apos;UART6.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="UART6.ioc" name="UART7.ioc" stamp="1761002256076" updateReferences="true"/>
+</session>
