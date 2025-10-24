@@ -20,8 +20,6 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
-#include <stdlib.h>
-#include <string.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -48,57 +46,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t rxData1;
-uint8_t rxData2;
-char rxBuffer[10];
-uint8_t rxIndex = 0;
-int number;
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	if(huart->Instance == USART2)
-	{
-	HAL_UART_Receive_IT(&huart2, &rxData2, 1);
-//	HAL_UART_Transmit_IT(&huart1, &rxData2, sizeof(rxData2));
-	HAL_UART_Transmit(&huart1, &rxData2, sizeof(rxData2), HAL_MAX_DELAY );
-	}
-
-	else if(huart->Instance == USART1)
-		{
-
-//		HAL_UART_Transmit_IT(&huart2, &rxData1, sizeof(rxData1));
-		 if (rxData1 == '\n')  // 줄바꿈(엔터) 들어오면 끝으로 판단
-		        {
-		            rxBuffer[rxIndex] = '\0';  // 문자열 끝 표시
-		            number = atoi(rxBuffer);   // 문자열 → 정수 변환
-
-
-		            // 버퍼 초기화
-		            rxIndex = 0;
-		            memset(rxBuffer, 0, sizeof(rxBuffer));
-		        }
-		        else
-		        {
-		            // 일반 문자면 버퍼에 추가
-		            if (rxIndex < sizeof(rxBuffer) - 1)
-		            {
-		                rxBuffer[rxIndex++] = rxData1;
-		            }
-		        }
-
-
-		HAL_UART_Transmit(&huart2, &rxData1, sizeof(rxData1), HAL_MAX_DELAY);
-		HAL_UART_Receive_IT(&huart1, &rxData1, 1);
-		}
-
-}
 
 /* USER CODE END PFP */
 
@@ -140,11 +93,8 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UART_Receive_IT(&huart2, &rxData2, 1);
-  HAL_UART_Receive_IT(&huart1, &rxData1, 1);
-
-  // 스테퍼모터 제어
-//  rotateDegrees(number, DIR_CW);
+  rotateDegrees(50, DIR_CW);
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
 
   /* USER CODE END 2 */
 

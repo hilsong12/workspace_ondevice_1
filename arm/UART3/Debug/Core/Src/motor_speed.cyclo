@@ -1,5 +1,0 @@
-../Core/Inc/adc.h:47:24:adc_map_u32	5
-../Core/Src/motor_speed.c:16:6:motor_speed_init	5
-../Core/Src/motor_speed.c:34:10:motor_speed_update	7
-../Core/Src/motor_speed.c:61:10:motor_speed_get_period_ms	1
-../Core/Src/motor_speed.c:66:9:motor_speed_get_filtered_adc	1

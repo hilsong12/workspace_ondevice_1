@@ -1,8 +1,0 @@
-../Core/Src/stepper.c:6:6:stepMotor	16	static
-../Core/Src/stepper.c:26:6:rotateSteps	24	static
-../Core/Src/stepper.c:46:6:rotateDegrees	24	static
-../Core/Src/stepper.c:54:6:rotateUntilSensor	24	static
-../Core/Src/stepper.c:86:6:rotateSteps_NB	16	static
-../Core/Src/stepper.c:95:6:rotateDegrees_NB	24	static
-../Core/Src/stepper.c:101:6:rotateUntilSensor_NB	16	static
-../Core/Src/stepper.c:111:6:stepperTask	16	static

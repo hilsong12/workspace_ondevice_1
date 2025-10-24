@@ -1,3 +1,0 @@
-../Core/Src/elevator.c:7:6:Elevator_Init	1
-../Core/Src/elevator.c:14:6:Elevator_SetTarget	4
-../Core/Src/elevator.c:24:6:Elevator_Update	2

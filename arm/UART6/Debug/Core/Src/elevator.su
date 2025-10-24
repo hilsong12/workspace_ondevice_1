@@ -10,8 +10,8 @@
 ../Core/Src/elevator.c:245:20:promote_to_pending	4	static
 ../Core/Src/elevator.c:252:20:set_new_target	16	static
 ../Core/Src/elevator.c:266:6:handleExternalButtonCall	32	static
-../Core/Src/elevator.c:406:6:read_fnd_floor	16	static
-../Core/Src/elevator.c:432:6:read_external_buttons	8	static
-../Core/Src/elevator.c:446:6:read_inside_buttons	8	static
-../Core/Src/elevator.c:461:6:handleInsideButton	24	static
-../Core/Src/elevator.c:720:6:elevator_loop	16	static
+../Core/Src/elevator.c:405:6:read_fnd_floor	16	static
+../Core/Src/elevator.c:431:6:read_external_buttons	8	static
+../Core/Src/elevator.c:445:6:read_inside_buttons	8	static
+../Core/Src/elevator.c:460:6:handleInsideButton	24	static
+../Core/Src/elevator.c:718:6:elevator_loop	16	static

@@ -21,20 +21,22 @@
 #include "led.h"    // FND 표시
 
 
+
+
 /* ===== 내부 상태 ===== */
 static int8_t current      = -1;   // 현재 층(0..2, 미확정: -1)
 static int8_t target       = -1;   // 목적지 층(없으면 -1)
 static int8_t pending      = -1;   // 경유 후 재개 목적지(없으면 -1). 1칸만
 static int8_t fndfloor     = -1;   // FND 표시용 현재 감지 층(없으면 -1)
-static bool   moving       = false;
-static bool   pause_active = false;
+static bool   moving       = false;    // 움직이는게 아니다.
+static bool   pause_active = false;   // 일시정지가 아니다 -> 동작중 멈춰 있는게 아니라 그냥 완전 정지
 
 /* 호출 방향 보관 */
-static buttonUpDownCall target_dir  = 0; // 현재 target의 호출 방향
+static buttonUpDownCall target_dir  = 0; // 현재 target의 호출 방향    나 아래층으로 갈거야~
 static buttonUpDownCall pending_dir = 0; // pending의 호출 방향
 
 /* ===== 진행 방향 헬퍼 ===== */
-static inline bool is_moving_up(void)   { return (target > current); }
+static inline bool is_moving_up(void)   { return (target > current); }   //버튼 방향이 아니라 엘리베이터가 움직여야하는 방향
 static inline bool is_moving_down(void) { return (target < current); }
 
 /* ===== 공통 헬퍼: 방향/위치 관계 계산 ===== */
@@ -45,19 +47,19 @@ static inline int move_sign(void)
     if (target < current) return -1;
     return 0;
 }
-// 같은 방향 호출인가?
+// 같은 방향 호출인가? 3층 아래 2층 위               target_dir 은 처음 호출한 층으로 갈때 방향     call_dir은 그 다음에 호출한 층으로 갈때 방향
 static inline bool same_dir(buttonUpDownCall call_dir, buttonUpDownCall target_dir)
 {
 	bool is_same = (call_dir == target_dir);     // 방향이 같다
-	bool call_valid = (call_dir != 0);           // 호출 방향이 유효하다
-	bool target_valid = (target_dir != 0);       // 타깃 방향이 유효하다
+	bool call_valid = (call_dir != 0);           // 호출 방향이 유효하다     ,,다음 호출이 들어 왔다
+	bool target_valid = (target_dir != 0);       // 타깃 방향이 유효하다     ,,타겟이 있다.
 
 	if (is_same && call_valid && target_valid)
 	    return true;
 	else
 	    return false;
 }
-// 호출이 '경로 사이'에 있는가?
+// 호출이 '경로 사이'에 있는가?    그니까...
 // (상행: current < call < target / 하행: target < call < current)
 static inline bool is_between_on_route(int current, int target, int call)
 {
@@ -80,13 +82,13 @@ bool beyond_target_on_route(int current, int target, int call)
 
 /* 버튼 스냅샷(루프마다 갱신) */
 static volatile uint8_t externalButtonOneFloorUp = 0,
-												externalButtonTwoFloorDown = 0,
-												externalButtonTwoFloorUp = 0,
-												externalButtonThreeFloorDown = 0;
+						externalButtonTwoFloorDown = 0,
+						externalButtonTwoFloorUp = 0,
+						externalButtonThreeFloorDown = 0;
 
 static volatile uint8_t insideButtonOneFloor = 0,
-												insideButtonTwoFloor = 0,
-												insideButtonThreeFloor = 0;
+						insideButtonTwoFloor = 0,
+						insideButtonThreeFloor = 0;
 
 /* =========================================================================
  * 초기화
@@ -127,7 +129,7 @@ void elevator_init(void)
 }
 
 /* =========================================================================
- * 필요 시 이동 개시 (pause_active이면 출발 금지)
+ * 필요 시 이동 개시 (pause_active이면 출발 금지)      pause active는 움직이는 상태인데 모터를 sw로 잠시 멈춰두는것
  * ========================================================================= */
 // 엘리베이터를 출발시킬지 확인하고,
 // 조건이 맞으면 모터를 회전시켜 이동을 시작하는 함수
@@ -393,8 +395,7 @@ void handleExternalButtonCall(uint8_t floor, buttonUpDownCall call_dir)
      * ------------------------------------------------------------------------ */
     const bool can_queue =
         (pending == -1) &&
-        (floor != (uint8_t)target) &&
-        (floor != (uint8_t)current);
+        (floor != (uint8_t)target);
 
     if (can_queue)
     {
@@ -708,8 +709,7 @@ void handleInsideButton(uint8_t floor)
      *   - 여러 호출이 동시에 들어오지만 설계 단순화를 위해 1건만 저장
      * -------------------------------------------------------------------- */
     if (pending == -1 &&
-        floor != (uint8_t)target &&
-        floor != (uint8_t)current) {
+        floor != (uint8_t)target) {
         pending     = (int8_t)floor;
         pending_dir = call_dir;
     }

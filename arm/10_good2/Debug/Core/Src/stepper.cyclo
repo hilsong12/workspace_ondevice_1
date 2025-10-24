@@ -1,8 +1,0 @@
-../Core/Src/stepper.c:6:6:stepMotor	1
-../Core/Src/stepper.c:26:6:rotateSteps	3
-../Core/Src/stepper.c:46:6:rotateDegrees	1
-../Core/Src/stepper.c:54:6:rotateUntilSensor	6
-../Core/Src/stepper.c:86:6:rotateSteps_NB	2
-../Core/Src/stepper.c:95:6:rotateDegrees_NB	1
-../Core/Src/stepper.c:101:6:rotateUntilSensor_NB	2
-../Core/Src/stepper.c:111:6:stepperTask	11

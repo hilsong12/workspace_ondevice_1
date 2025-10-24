@@ -1,9 +1,0 @@
-../Core/Src/elevator.c:43:20:is_moving_up	1
-../Core/Src/elevator.c:44:20:is_moving_down	1
-../Core/Src/elevator.c:52:6:elevator_init	3
-../Core/Src/elevator.c:89:13:start_move_if_needed	6
-../Core/Src/elevator.c:110:13:check_arrival	7
-../Core/Src/elevator.c:158:7:handleExternalButtonCall	29
-../Core/Src/elevator.c:276:6:read_fnd_floor	4
-../Core/Src/elevator.c:302:7:read_external_buttons	5
-../Core/Src/elevator.c:318:6:elevator_loop	6
