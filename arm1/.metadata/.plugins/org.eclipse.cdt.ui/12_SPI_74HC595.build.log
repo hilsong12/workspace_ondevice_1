@@ -1,0 +1,10 @@
+20:42:01 **** Incremental Build of configuration Debug for project 12_SPI_74HC595 ****
+make -j16 all 
+arm-none-eabi-size  12_SPI_74HC595.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7664	     24	   1656	   9344	   2480	12_SPI_74HC595.elf
+Finished building: default.size.stdout
+ 
+
+20:42:01 Build Finished. 0 errors, 0 warnings. (took 80ms)
+

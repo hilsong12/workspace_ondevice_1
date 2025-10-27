@@ -37,11 +37,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00018e4d  00000000  00000000  000195e4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000fc7c  00000000  00000000  00032431  2**0
+ 17 .debug_line   0000fc7d  00000000  00000000  00032431  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000942f5  00000000  00000000  000420ad  2**0
+ 18 .debug_str    000942f5  00000000  00000000  000420ae  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000d63a2  2**0
+ 19 .comment      00000043  00000000  00000000  000d63a3  2**0
                   CONTENTS, READONLY
  20 .debug_frame  00003420  00000000  00000000  000d63e8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -894,7 +894,7 @@ static inline int move_sign(void)
  800087c:	20000054 	.word	0x20000054
 
 08000880 <same_dir>:
-// 같은 방향 호출인가?
+// 같은 방향 호출인가? 3층 아래 2층 위               target_dir 은 처음 호출한 층으로 갈때 방향     call_dir은 그 다음에 호출한 층으로 갈때 방향
 static inline bool same_dir(buttonUpDownCall call_dir, buttonUpDownCall target_dir)
 {
  8000880:	b480      	push	{r7}
@@ -913,14 +913,14 @@ static inline bool same_dir(buttonUpDownCall call_dir, buttonUpDownCall target_d
  8000898:	2301      	moveq	r3, #1
  800089a:	2300      	movne	r3, #0
  800089c:	73fb      	strb	r3, [r7, #15]
-	bool call_valid = (call_dir != 0);           // 호출 방향이 유효하다
+	bool call_valid = (call_dir != 0);           // 호출 방향이 유효하다     ,,다음 호출이 들어 왔다
  800089e:	79fb      	ldrb	r3, [r7, #7]
  80008a0:	2b00      	cmp	r3, #0
  80008a2:	bf14      	ite	ne
  80008a4:	2301      	movne	r3, #1
  80008a6:	2300      	moveq	r3, #0
  80008a8:	73bb      	strb	r3, [r7, #14]
-	bool target_valid = (target_dir != 0);       // 타깃 방향이 유효하다
+	bool target_valid = (target_dir != 0);       // 타깃 방향이 유효하다     ,,타겟이 있다.
  80008aa:	79bb      	ldrb	r3, [r7, #6]
  80008ac:	2b00      	cmp	r3, #0
  80008ae:	bf14      	ite	ne
@@ -952,7 +952,7 @@ static inline bool same_dir(buttonUpDownCall call_dir, buttonUpDownCall target_d
  80008d8:	4770      	bx	lr
 
 080008da <is_between_on_route>:
-// 호출이 '경로 사이'에 있는가?
+// 호출이 '경로 사이'에 있는가?    그니까...
 // (상행: current < call < target / 하행: target < call < current)
 static inline bool is_between_on_route(int current, int target, int call)
 {
@@ -1174,7 +1174,7 @@ void elevator_init(void)
  8000a44:	2000018d 	.word	0x2000018d
 
 08000a48 <start_move_if_needed>:
- * 필요 시 이동 개시 (pause_active이면 출발 금지)
+ * 필요 시 이동 개시 (pause_active이면 출발 금지)      pause active는 움직이는 상태인데 모터를 sw로 잠시 멈춰두는것
  * ========================================================================= */
 // 엘리베이터를 출발시킬지 확인하고,
 // 조건이 맞으면 모터를 회전시켜 이동을 시작하는 함수

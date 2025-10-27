@@ -528,23 +528,24 @@ int main(void)
  80005e8:	f000 f968 	bl	80008bc <MX_USART1_UART_Init>
   /* USER CODE BEGIN 2 */
 
-  rotateDegrees(400, DIR_CW);
+  rotateDegrees(50, DIR_CW);
  80005ec:	2100      	movs	r1, #0
- 80005ee:	f44f 70c8 	mov.w	r0, #400	@ 0x190
- 80005f2:	f000 f8dd 	bl	80007b0 <rotateDegrees>
+ 80005ee:	2032      	movs	r0, #50	@ 0x32
+ 80005f0:	f000 f8de 	bl	80007b0 <rotateDegrees>
 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
- 80005f6:	2201      	movs	r2, #1
- 80005f8:	2120      	movs	r1, #32
- 80005fa:	4802      	ldr	r0, [pc, #8]	@ (8000604 <main+0x30>)
- 80005fc:	f000 fd58 	bl	80010b0 <HAL_GPIO_WritePin>
+ 80005f4:	2201      	movs	r2, #1
+ 80005f6:	2120      	movs	r1, #32
+ 80005f8:	4802      	ldr	r0, [pc, #8]	@ (8000604 <main+0x30>)
+ 80005fa:	f000 fd59 	bl	80010b0 <HAL_GPIO_WritePin>
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
- 8000600:	bf00      	nop
- 8000602:	e7fd      	b.n	8000600 <main+0x2c>
+ 80005fe:	bf00      	nop
+ 8000600:	e7fd      	b.n	80005fe <main+0x2a>
+ 8000602:	bf00      	nop
  8000604:	40020000 	.word	0x40020000
 
 08000608 <SystemClock_Config>:

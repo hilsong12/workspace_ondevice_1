@@ -4659,3 +4659,18 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-10-22 15:57:26.620
 !MESSAGE Log4j2 initialized with config file /home/user12/workspace_ondevice_1/arm/.metadata/.log4j2.xml
+!SESSION 2025-10-27 20:04:55.558 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -data /home/user12/workspace_ondevice_1/arm
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-10-27 20:04:56.272
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-10-27 20:04:57.809
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-10-27 20:04:57.809
+!MESSAGE Log4j2 initialized with config file /home/user12/workspace_ondevice_1/arm/.metadata/.log4j2.xml

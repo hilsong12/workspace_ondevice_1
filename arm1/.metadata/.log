@@ -1,0 +1,48 @@
+!SESSION 2025-10-27 20:37:39.703 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-10-27 20:37:43.961
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-10-27 20:37:43.961
+!MESSAGE Log4j2 initialized with config file /home/user12/workspace_ondevice_1/arm1/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-10-27 20:37:45.628
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:15.611
+!MESSAGE Indexed '11_DHT11' (31 sources, 134 headers) in 1.82 sec: 14,082 declarations; 75,443 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.27%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:16.375
+!MESSAGE Indexed '12_SPI_74HC595' (22 sources, 119 headers) in 0.762 sec: 10,895 declarations; 42,138 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.45%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:17.136
+!MESSAGE Indexed '09_ADC_INT' (26 sources, 123 headers) in 0.757 sec: 11,609 declarations; 48,150 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.4%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:17.177
+!MESSAGE Indexed 'test_circular' (1 sources, 58 headers) in 0.041 sec: 1,038 declarations; 2,293 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:17.910
+!MESSAGE Indexed '09_ADC_DMA' (27 sources, 124 headers) in 0.732 sec: 11,613 declarations; 48,264 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.4%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:17.941
+!MESSAGE Indexed 'test_queue' (1 sources, 58 headers) in 0.031 sec: 1,036 declarations; 2,262 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:18.627
+!MESSAGE Indexed '09_ADC' (26 sources, 123 headers) in 0.686 sec: 11,603 declarations; 48,141 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.4%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:19.258
+!MESSAGE Indexed '07_STEPPER2' (25 sources, 123 headers) in 0.63 sec: 11,147 declarations; 43,663 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.44%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:19.290
+!MESSAGE Indexed 'test_stack' (1 sources, 58 headers) in 0.031 sec: 1,038 declarations; 2,266 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:19.991
+!MESSAGE Indexed '10_ultrasonic' (26 sources, 124 headers) in 0.698 sec: 12,800 declarations; 62,699 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.32%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-27 20:38:21.651
+!MESSAGE Indexed '11_DHT11' (31 sources, 134 headers) in 0.765 sec: 14,082 declarations; 75,443 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.27%)
