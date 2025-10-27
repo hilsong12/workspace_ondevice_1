@@ -9,14 +9,14 @@
 #define DIR_CW					0   //시계방향
 #define DIR_CCW 				1   //반시계 방향
 
-#define IN1_PIN		GPIO_PIN_1
-#define IN1_GPIO_PORT GPIOB
-#define IN2_PIN		GPIO_PIN_15
+#define IN1_PIN		GPIO_PIN_4
+#define IN1_GPIO_PORT GPIOA
+#define IN2_PIN		GPIO_PIN_0
 #define IN2_GPIO_PORT GPIOB
-#define IN3_PIN		GPIO_PIN_14
-#define IN3_GPIO_PORT GPIOB
-#define IN4_PIN		GPIO_PIN_13
-#define IN4_GPIO_PORT GPIOB
+#define IN3_PIN		GPIO_PIN_1
+#define IN3_GPIO_PORT GPIOC
+#define IN4_PIN		GPIO_PIN_0
+#define IN4_GPIO_PORT GPIOC
 
 static const uint8_t HALF_STEP_SEQ[8][4]=            //half step을 쓸것을 표시
 {
@@ -33,7 +33,7 @@ static const uint8_t HALF_STEP_SEQ[8][4]=            //half step을 쓸것을 �
 void stepMotor(uint8_t step);
 void rotateSteps(uint16_t steps, uint8_t direction);
 void rotateDegrees(uint16_t degrees, uint8_t direction);
-void rotate_update();
-
+void motor_update(uint8_t dir);
+void motor_stop();
 
 #endif /* INC_STEPPER_H_ */

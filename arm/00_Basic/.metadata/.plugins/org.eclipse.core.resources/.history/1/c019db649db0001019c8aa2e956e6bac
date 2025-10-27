@@ -1,0 +1,112 @@
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#define MAX_CIRCULAR_SIZE		5
+
+typedef struct
+{
+	int data[MAX_CIRCULAR_SIZE];
+	int head;
+	int tail;
+}circularType;
+
+void init_circular(circular *c)
+{
+	c->head = c->tail = 0;
+}
+
+bool is_empty(circularType *c)
+{
+	return (c->head == c->tail);
+}
+
+bool is_full(circularType *c)
+{
+	//큐가 가득차있으면  tail+1에서 큐사이즈로 나눈 값이 head와 같음
+	return (c->head == ((c->tail +1) % MAX_CIRCULAR_SIZE));
+}
+
+void enqueue(circularType *c, int data)
+{
+	if(is_full(c))
+	{
+		printf("Circular is Full\n");
+	}
+	else
+	{
+		c->tail = (c->tail + 1) % MAX_CIRCULAR_SIZE;
+		c->data[c->tail] = data;
+	}
+}
+
+
+int dequeue(circular *c)
+{
+	if(is_empty(c))
+	{
+		printf("Circular is Empty\n");
+		exit(1);
+	}
+	else
+	{
+		c->head = (c->head + 1)% MAX_CIRCULAR_SIZE;
+		int data = c->data[c->head];
+		return data;
+	}
+}
+
+void print_circular(circularType *c)
+{
+	if(is_empty(c))
+	{
+		printf("Empty Circular \n");
+	}
+	else
+	{
+		printf("Circular : ");
+		if(!is_empty(c))
+		{
+			int i= c->head;
+			do{
+				i = (i+1) % MAX_CIRCULAR_SIZE;
+				printf(" %d |",c->data[i]);
+				if(i == c->tail)
+					break;
+			}while (i !=c->head);
+			printf("\n");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+int main(void)
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

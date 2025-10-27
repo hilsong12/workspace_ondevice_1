@@ -1,0 +1,98 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+/**
+ * stack
+ */
+
+#define MAX_STACK_SIZE		5
+
+typedef struct
+{
+	int data[MAX_STACK_SIZE]; 	// 스택사이즈크기의 배열
+	int top;   					// 스택상단 - 배열은 0부터 시작
+}stackType;
+
+//스택 초기화
+void init_stack(stackType *s)
+{
+	s->top = -1;
+}
+
+//스택이 비어있는지 확인
+bool is_empty(stackType *s)
+{
+	return (s->top == -1);
+}
+
+//스택이 꽉 차있는지?
+bool is_full(stackType *s)
+{
+	return(s->top == MAX_STACK_SIZE);
+}
+
+
+//스택이 꽉 차있는지 확인 후에 삽입연산
+void push(stackType *s, int data)
+{
+	if(is_full(s))
+		{
+		printf("Stack is Full\n\r");
+		}
+	else
+		{
+		s->data[++(s->top)] = data;
+		}
+}
+
+//스택확인후 삭제 연산
+int pop (stackType *s)
+{
+	if(is_empty(s))
+	{
+		printf("Stack is Empty\n\r");
+		exit(1);   //프로그램 종료 함수
+	}
+	else
+	{
+		int data = s->data[(s->top)--];
+		return data;
+	}
+}
+
+//스택출력
+void print_stack(stackType *s)
+{
+	if(is_empty(s))
+	{
+		printf("Empty Stack\n\r");
+	}
+	else
+	{
+		printf("Stack : ");
+		for(int i=0 ; i< s->top; i++)
+		{
+			printf ("%d | ",s ->data[i]);
+		}
+		printf(" %d\n",s->data[s->top]);
+	}
+}
+
+
+int main(void)
+
+{
+stackType stack;
+
+init_stack(&stack);
+
+push(&stack, 7);
+print_stack(&stack);
+
+push(&stack, 7);
+print_stack(&stack);
+
+return 0;
+}

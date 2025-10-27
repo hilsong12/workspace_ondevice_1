@@ -52,21 +52,41 @@ void rotateDegrees(uint16_t degrees, uint8_t direction)    //각도를 주면 �
 
 
 
-void rotate_update()
+void motor_update(uint8_t dir)
+{
+    static uint8_t step_index = 0;  // 이전 스텝 유지
 
-{    static uint8_t step_index = 0;
-	if (softTimer[0].timeOut)
-	{
-	  softTimer[0].timeOut = false;
+    if (softTimer[0].timeOut)
+    {
+        softTimer[0].timeOut = false;
 
-	  // 다음 스텝으로 이동
-	  step_index = (step_index + 1) % 8;
-	  HAL_GPIO_WritePin(IN1_GPIO_PORT, IN1_PIN, HALF_STEP_SEQ[step_index][0]);
-	  HAL_GPIO_WritePin(IN2_GPIO_PORT, IN2_PIN, HALF_STEP_SEQ[step_index][1]);
-	  HAL_GPIO_WritePin(IN3_GPIO_PORT, IN3_PIN, HALF_STEP_SEQ[step_index][2]);
-	  HAL_GPIO_WritePin(IN4_GPIO_PORT, IN4_PIN, HALF_STEP_SEQ[step_index][3]);
-	}
+        // 방향에 따라 스텝 증가/감소
+        if (dir == DIR_CW)
+        {
+            step_index = (step_index + 1) % 8;
+        }
+        else
+        {
+            step_index = (step_index + 7) % 8;  // 1스텝 CCW
+        }
+
+        // 핀 출력
+        HAL_GPIO_WritePin(IN1_GPIO_PORT, IN1_PIN, HALF_STEP_SEQ[step_index][0]);
+        HAL_GPIO_WritePin(IN2_GPIO_PORT, IN2_PIN, HALF_STEP_SEQ[step_index][1]);
+        HAL_GPIO_WritePin(IN3_GPIO_PORT, IN3_PIN, HALF_STEP_SEQ[step_index][2]);
+        HAL_GPIO_WritePin(IN4_GPIO_PORT, IN4_PIN, HALF_STEP_SEQ[step_index][3]);
+    }
 }
+
+void motor_stop()
+{
+	HAL_GPIO_WritePin(IN1_GPIO_PORT, IN1_PIN, HALF_STEP_SEQ[0][0]);
+	HAL_GPIO_WritePin(IN2_GPIO_PORT, IN2_PIN, HALF_STEP_SEQ[0][1]);
+	HAL_GPIO_WritePin(IN3_GPIO_PORT, IN3_PIN, HALF_STEP_SEQ[0][2]);
+	HAL_GPIO_WritePin(IN4_GPIO_PORT, IN4_PIN, HALF_STEP_SEQ[0][3]);
+}
+
+
 
 
 

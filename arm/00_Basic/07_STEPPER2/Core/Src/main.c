@@ -26,6 +26,7 @@
 
 #include "stepper.h"
 #include "swTimer.h"
+#include "button.h"
 
 /* USER CODE END Includes */
 
@@ -100,21 +101,40 @@ int main(void)
     softTimer_Init(swTimerID4, 2000);   // 2000ms
 
 
-
+    static uint8_t flag =0;
+    static uint8_t i= 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  	  	rotate_update();
+//	  if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1))
+//	  {
+//	  	  	motor_update();
+//	  }
 
-	        // led2 control
-	        if(softTimer_IsTimeOut(swTimerID2) == SET)
-	        {
-	          HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);  // LED12 토글
-	          softTimer_Reset(swTimerID2);            // 타이머 리셋
-	        }
+	  if (buttonGetPressed(0)) { flag ^= 1; }
+	  if (flag)
+	  {	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_11);}
+
+
+//	        // led2 control
+//	        if(softTimer_IsTimeOut(swTimerID2) == SET)
+//	        {
+//	          HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);  // LED12 토글
+//	          softTimer_Reset(swTimerID2);            // 타이머 리셋
+//	        }
+
+		if(buttonGetPressed(1))
+			 {i = ++i %3 ;}
+
+			 switch(i)
+			 {
+			 case 0:  motor_stop(); break;
+			 case 1: motor_update(DIR_CW); break;
+			 case 2:  motor_update(DIR_CCW); break;
+			 }
 
     /* USER CODE END WHILE */
 

@@ -1,0 +1,10 @@
+12:02:03 **** Incremental Build of configuration Debug for project 09_ADC_DMA ****
+make -j16 all 
+arm-none-eabi-size  09_ADC_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29348	    468	   2148	  31964	   7cdc	09_ADC_DMA.elf
+Finished building: default.size.stdout
+ 
+
+12:02:04 Build Finished. 0 errors, 0 warnings. (took 83ms)
+
