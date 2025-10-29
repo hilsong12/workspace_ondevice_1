@@ -1,0 +1,10 @@
+12:24:20 **** Incremental Build of configuration Debug for project RCcar ****
+make -j16 all 
+arm-none-eabi-size  RCcar.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19440	    104	   2128	  21672	   54a8	RCcar.elf
+Finished building: default.size.stdout
+ 
+
+12:24:20 Build Finished. 0 errors, 0 warnings. (took 82ms)
+

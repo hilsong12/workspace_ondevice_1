@@ -1550,8 +1550,8 @@ int main(void)
  8000ce0:	491e      	ldr	r1, [pc, #120]	@ (8000d5c <main+0x9c>)
  8000ce2:	481f      	ldr	r0, [pc, #124]	@ (8000d60 <main+0xa0>)
  8000ce4:	f7ff fd3c 	bl	8000760 <dht11Init>
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+//lcd_string("good");
+
   while (1)
   {
 

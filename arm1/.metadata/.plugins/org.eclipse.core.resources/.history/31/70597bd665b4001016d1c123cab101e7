@@ -1,0 +1,17 @@
+
+#include "rcCar.h"
+#include "main.h"
+
+
+
+
+
+void rcCar()
+{
+	for( uint8_t i =0; i<4 ; i++)
+	{
+		if (rxdata)
+	}
+
+
+}

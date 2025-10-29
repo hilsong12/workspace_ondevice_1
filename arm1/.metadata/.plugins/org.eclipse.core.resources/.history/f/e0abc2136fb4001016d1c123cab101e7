@@ -1,0 +1,42 @@
+#include "rcCar.h"
+#include "main.h"
+
+#define PWM_ON  500
+#define PWM_OFF 0
+
+void rcCar(char data)
+{
+    // 모든 채널 기본값 0
+    TIM3->CCR1 = PWM_OFF;
+    TIM3->CCR2 = PWM_OFF;
+    TIM3->CCR3 = PWM_OFF;
+    TIM3->CCR4 = PWM_OFF;
+
+    switch(data)
+    {
+        case 'd':  // 오른쪽 회전
+            TIM3->CCR1 = PWM_ON;
+            TIM3->CCR4 = PWM_ON;
+            break;
+
+        case 'a':  // 왼쪽 회전
+            TIM3->CCR2 = PWM_ON;
+            TIM3->CCR3 = PWM_ON;
+            break;
+
+        case 's':  // 후진
+            TIM3->CCR1 = PWM_ON;
+            TIM3->CCR3 = PWM_ON;
+            break;
+
+        case 'w':  // 전진
+            TIM3->CCR2 = PWM_ON;
+            TIM3->CCR4 = PWM_ON;
+            break;
+
+        default:
+            // 이미 PWM_OFF로 초기화됨
+            break;
+    }
+}
+

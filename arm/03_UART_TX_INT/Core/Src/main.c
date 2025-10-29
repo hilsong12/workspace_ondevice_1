@@ -144,7 +144,7 @@ HAL_UART_Receive_IT(&huart1, &rxData1, 1);
 	 	          case  8 : displayNumber(8); break;
 	 	          case  9:  displayNumber(9); break;
 	 	          }
-
+	 	     }
 
 
     /* USER CODE END WHILE */
