@@ -25,6 +25,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "rcCar.h"
+#include "ultrasonic.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,31 +48,35 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-char rxData6;
-char rxData2;
+uint8_t rxData6;
+uint8_t rxData2;
+
+
+
+
+
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(huart->Instance == USART2)
 	{
-	HAL_UART_Receive_IT(&huart2, &rxData2, 1);
-	printf("receive is ok");
-
-//	HAL_UART_Transmit_IT(&huart1, &rxData2, sizeof(rxData2));
-	HAL_UART_Transmit(&huart6, &rxData2, sizeof(rxData2), HAL_MAX_DELAY );
+	   HAL_UART_Receive_IT(&huart2, &rxData2, 1);
+	   printf("receive is ok");
+	   HAL_UART_Transmit(&huart6, &rxData2, sizeof(rxData2), HAL_MAX_DELAY );
 	}
 
 	else if(huart->Instance == USART6)
-		{
+    {
 		HAL_UART_Receive_IT(&huart6, &rxData6, 1);
-//		HAL_UART_Transmit_IT(&huart2, &rxData1, sizeof(rxData1));
-		 HAL_UART_Transmit(&huart2, &rxData6, sizeof(rxData6), HAL_MAX_DELAY);
-		}
+		HAL_UART_Transmit(&huart2, &rxData6, sizeof(rxData6), HAL_MAX_DELAY);
+	}
 
 }
 	int _write(int file, unsigned char* p, int len)
@@ -117,7 +124,16 @@ int main(void)
   MX_TIM3_Init();
   MX_USART2_UART_Init();
   MX_USART6_UART_Init();
+  MX_TIM4_Init();
+  MX_TIM11_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_TIM_Base_Start(&htim11);  //for delay_us() Function
+  HAL_TIM_IC_Start_IT(&htim4, TIM_CHANNEL_1);  //인터럽트면 콜백 이름 모르니까
+  HAL_TIM_IC_Start_IT(&htim4, TIM_CHANNEL_2);
+  HAL_TIM_IC_Start_IT(&htim4, TIM_CHANNEL_3);
+
+  rcCar_init();
 
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
@@ -126,7 +142,6 @@ int main(void)
 
   HAL_UART_Receive_IT(&huart6, &rxData6, 1);
   HAL_UART_Receive_IT(&huart2, &rxData2, 1);
-
 
 
 
@@ -145,6 +160,14 @@ int main(void)
   while (1)
   {
 	  rcCar(rxData6);
+
+	  HCSR04_TRIGGER();
+
+	 printf("Distance1 : %d cm\n",distance1);
+	 printf("Distance2 : %d cm\n",distance2);
+	 printf("Distance3 : %d cm\n",distance3);
+	 HAL_Delay(1000);
+
 
 
     /* USER CODE END WHILE */

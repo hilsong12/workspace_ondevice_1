@@ -1,10 +1,10 @@
-15:20:03 **** Incremental Build of configuration Debug for project 00_basic_ceu ****
+13:58:16 **** Incremental Build of configuration Debug for project 00_basic_ceu ****
 make -j16 all 
 arm-none-eabi-size  00_basic_ceu.elf 
    text	   data	    bss	    dec	    hex	filename
-   5832	     12	   1572	   7416	   1cf8	00_basic_ceu.elf
+  12884	     12	   1788	  14684	   395c	00_basic_ceu.elf
 Finished building: default.size.stdout
  
 
-15:20:03 Build Finished. 0 errors, 0 warnings. (took 142ms)
+13:58:16 Build Finished. 0 errors, 0 warnings. (took 75ms)
 

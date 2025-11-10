@@ -1,0 +1,2 @@
+../Core/Src/Joy.c:12:6:Print_Joy	16	static
+../Core/Src/Joy.c:23:6:Read_Joy_Data	24	static

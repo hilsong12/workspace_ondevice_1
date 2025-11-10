@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;bluetooth/RCcar4_2.ioc&apos; to &apos;bluetooth.ioc&apos;" description="Rename resource &apos;RCcar4_2.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="RCcar4_2.ioc" name="bluetooth.ioc" stamp="1762322355630" updateReferences="true"/>
+</session>
