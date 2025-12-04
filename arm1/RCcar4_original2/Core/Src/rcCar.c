@@ -4,12 +4,10 @@
 #include "main.h"
 
 
+uint8_t speed = speed_middle;
+
 void rcCar_init()
 {
-	  TIM3->CCR1 = 0;
-	  TIM3->CCR2 = 0;
-	  TIM3->CCR3 = 0;
-	  TIM3->CCR4 = 0;
 
 	  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_4, GPIO_PIN_RESET);
 	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
@@ -19,48 +17,59 @@ void rcCar_init()
 	  HAL_Delay(100);
 }
 
+void rcCarmode(uint8_t *speed)   //버튼을 누르면 빨리간다.
+{
+  *speed = speed_high ;
+}
 
 void rcCar(char data)
 {
     // 입력에 따라 모터 제어
     switch(data)
     {
-        case 'd':    //오른쪽
-        	TIM3->CCR1 = 1000;
-			TIM3->CCR2 = 0;
-			TIM3->CCR3 = 0;
-			TIM3->CCR4 = 1000;
-
-            break;
-        case 'a':      //왼쪽
-
-        	TIM3->CCR1 = 0;
-			TIM3->CCR2 = 1000;
-			TIM3->CCR3 = 1000;
-			TIM3->CCR4 = 0;
-
-            break;
-        case 's':        //후진
-        	TIM3->CCR1 = 1000;
-			TIM3->CCR2 = 0;
-			TIM3->CCR3 = 1000;
-			TIM3->CCR4 = 0;
-
-            break;
-        case 'w':         //전진
-        	TIM3->CCR1 = 0;
-			TIM3->CCR2 = 1000;  //오른쪽 바퀴
-			TIM3->CCR3 = 0;
-			TIM3->CCR4 = 1000;   //왼쪽 바퀴
-            break;
-        default:
-            TIM3->CCR1 = 0;
-            TIM3->CCR2 = 0;
-            TIM3->CCR3 = 0;
-            TIM3->CCR4 = 0;
-            // 아무것도 안함, 이미 0으로 초기화됨
-            break;
+        case 'd':  move_right();  break;
+        case 'a':  move_left();  break;
+        case 's':  move_backward();  break;
+        case 'w':  move_front(); break;
+        default:   move_stop();  break;
     }
 }
+
+void move_front()
+   {
+	left_forward  = speed;
+	right_forward = speed;
+	}
+
+void move_backward()
+{
+	left_backward = speed;
+	right_backward = speed;
+}
+
+
+void move_left()
+{
+	left_backward = speed;
+	right_forward = speed;
+}
+void move_right()
+{
+	left_forward =speed;
+	right_backward =speed;
+}
+void move_stop()
+{
+left_forward   = 0;
+left_backward  = 0;
+right_forward  = 0;
+right_backward = 0;
+}
+
+
+
+
+
+
 
 

@@ -58,3 +58,17 @@ Finished building: default.size.stdout
  
 Finished building: PJ_TSLL_JoyCon.list
  
+09:08:08 **** Build of configuration Debug for project RCcar4_original2 ****
+make -j16 all 
+arm-none-eabi-size  RCcar4_original2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20012	     12	   1956	  21980	   55dc	RCcar4_original2.elf
+Finished building: default.size.stdout
+ 
+09:08:14 **** Incremental Build of configuration Debug for project RCcar4_original2 ****
+make -j16 all 
+arm-none-eabi-size  RCcar4_original2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20012	     12	   1956	  21980	   55dc	RCcar4_original2.elf
+Finished building: default.size.stdout
+ 

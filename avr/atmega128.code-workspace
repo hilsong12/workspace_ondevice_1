@@ -5,6 +5,9 @@
         },
         {
             "path": "../clang/c_lecture"
+        },
+        {
+            "path": "../vivado"
         }
     ],
     "settings": {
