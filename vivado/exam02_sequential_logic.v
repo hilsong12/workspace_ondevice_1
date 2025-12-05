@@ -57,7 +57,33 @@ endmodule
 
 
 
+// module T_flip_flop(
+//     input clk, reset_p,
+//     input en,
+//     input t,
+//     output reg q);
 
+//     always @(negedge clk, posedge reset_p)begin
+//         if(reset_p)q = 0;
+//         else if(t) q= ~q;
+//     end
+
+// endmodule
+
+module T_flip_flop(
+    input clk, reset_p,
+    input en,
+    input t,
+    output reg q);
+
+    always @(negedge clk, posedge reset_p)begin
+        if(reset_p)q = 0;
+        else if(en)begin
+        if(t) q= ~q;
+        end
+    end
+
+endmodule
 
 
 
