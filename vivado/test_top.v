@@ -29,12 +29,12 @@ module test_top(
 endmodule
 
 module FND_top(
-    input [3:0] hex_value,
+    input clk, reset_p,
+    input [15:0] hex_value,
     output [7:0] seg,
     output [3:0] com);
-    
-    seg_decoder seg_dc(.hex_value(hex_value), .seg(seg));
-    assign com= 4'b0000;
+     
+    FND_cntr fnd(.clk(clk), .reset_p(reset_p), .fnd_value(hex_value), .seg(seg), .com(com));
     
 endmodule
 
