@@ -56,3 +56,33 @@ module FND_cntr(
     seg_decoder dec(.hex_value(digit_value), .seg(seg));
   
 endmodule
+
+module button_cntr(
+    input clk, reset_p,
+    input btn,
+    output btn_pedge, btn_nedge);
+    
+    reg [15:0] cnt_sysclk;
+    reg debounced_btn;
+    always @(posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            cnt_sysclk= 0;
+            debounced_btn = 0;    
+        end
+        else if(btn)begin
+            if(cnt_sysclk[15])begin 
+                debounced_btn =1;
+                cnt_sysclk = 0;
+            end
+            cnt_sysclk = cnt_sysclk +1;
+        end
+        else begin
+            if(cnt_sysclk[15])begin 
+                debounced_btn =0;
+                cnt_sysclk = 0;
+            end
+            cnt_sysclk = cnt_sysclk +1;
+        end
+    end
+    edge_detector_n ed( .clk(clk), .reset_p(reset_p), .cp(btn), .p_edge(btn_pedge), .n_edge(btn_nedge));
+endmodule
