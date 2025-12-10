@@ -76,21 +76,53 @@ module tb_SIPO();
     integer i;
     initial begin
         #10;
-        reset_p=0; rd_en=1;
+        reset_p=0; rd_en=0;
         for(i=0; i<8; i=i+1)begin
             d= data[i];
             #10;
         end
-        rd_en=0;
-        #50;   //시뮬레이션에서만 쓰는 문법 시스템 명령어  
-        rd_en=1; #80
+        rd_en=1;
+        #5;   //시뮬레이션에서만 쓰는 문법 시스템 명령어  
+        rd_en=0; #80
         $stop;
     end
 endmodule
 
 
 
+module tb_PISO();
+    
+    reg clk, reset_p;
+    reg [7:0] d;
+    reg shift_load;
+    wire q;
+   
+    
+    localparam [7:0] data = 8'b1011_1100;  //파라미터는 상수  bc
+    
+    PISO DUT(.clk(clk), .reset_p(reset_p), .d(d) ,.shift_load(shift_load), .q(q));
 
+    initial begin
+        clk =0;
+        reset_p =1;
+        d=0;
+        shift_load = 1;
+    end
+    always #5 clk =~clk; 
+    
+    integer i;
+    initial begin
+        #10;
+        reset_p=0; shift_load=0;
+            d= data;
+            #10;
+        
+        shift_load=1;
+        #80;   //시뮬레이션에서만 쓰는 문법 시스템 명령어  
+       
+        $stop;
+    end
+endmodule
 
 
 
