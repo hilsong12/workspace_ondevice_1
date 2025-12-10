@@ -84,5 +84,5 @@ module button_cntr(
             cnt_sysclk = cnt_sysclk +1;
         end
     end
-    edge_detector_n ed( .clk(clk), .reset_p(reset_p), .cp(btn), .p_edge(btn_pedge), .n_edge(btn_nedge));
+    edge_detector_n ed( .clk(clk), .reset_p(reset_p), .cp(debounced_btn), .p_edge(btn_pedge), .n_edge(btn_nedge));
 endmodule

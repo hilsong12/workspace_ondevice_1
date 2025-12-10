@@ -349,6 +349,65 @@ module SIPO(
 
 endmodule
 
+module PISO(
+    input clk, reset_p,
+    input [7:0] d,
+    input shift_load,
+    output q);
+  
+    
+    reg [7:0]register_piso;
+    always @(posedge clk, posedge reset_p)begin
+        if(reset_p)register_piso= 0;
+        else begin
+            if(shift_load) register_piso= {1'b0,register_piso[7:1]};  //0으로 채우겠다.
+            else register_piso= d;
+        end
+    end
+    assign q= register_piso[0];
+endmodule
+    
+
+//읽기 쓰기 동시에 가능
+
+
+module memory(
+    input clk, reset_p,
+    input [7:0] i_data,
+    input [9:0] wr_addr, rd_addr,
+    output reg [7:0] o_data);
+    
+    reg [7:0] ram [0:1023];  //1024개 1k짜리 램 
+    always @(posedge clk)begin
+        ram[wr_addr] = i_data;
+        o_data =ram[rd_addr];
+    end
+
+endmodule
+
+//주소 버스가 한개 읽고 쓰기 동시에 불가능
+
+module memory_one_addr_bus(
+    input clk, reset_p,
+    input [7:0] i_data,
+    input wr_rd,
+    input [9:0] addr,
+    output reg [7:0] o_data);
+    
+    reg [7:0] ram [0:1023];  //1024개 1k짜리 램 
+    always @(posedge clk)begin
+        if(wr_rd) ram[addr] = i_data;
+        else o_data = ram[addr];
+    end
+
+endmodule
+
+
+
+
+
+
+
 
 
 
