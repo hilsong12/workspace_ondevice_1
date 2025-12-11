@@ -101,8 +101,35 @@ module cook_timer_top(
 endmodule
 
 
-
-
-
-
-
+module stop_watch_top(
+    input clk,reset_p,
+    input [3:0] button,
+    output [7:0] seg,
+    output [3:0] com,
+    output [15:0] led);
+    
+    wire [3:0] btn_pedge, btn_nedge;
+    button_cntr btncntr0( .clk(clk), .reset_p(reset_p), .btn(button[0]),
+                               .btn_pedge(btn_pedge[0]), .btn_nedge(btn_nedge[0]));
+    button_cntr btncntr1( .clk(clk), .reset_p(reset_p), .btn(button[1]),
+                               .btn_pedge(btn_pedge[1]), .btn_nedge(btn_nedge[1]));
+    button_cntr btncntr2( .clk(clk), .reset_p(reset_p), .btn(button[2]),
+                               .btn_pedge(btn_pedge[2]), .btn_nedge(btn_nedge[2]));
+    button_cntr btncntr3( .clk(clk), .reset_p(reset_p), .btn(button[3]),
+                               .btn_pedge(btn_pedge[3]), .btn_nedge(btn_nedge[3]));  //현재 시간이랑 latest 랩타입 확인 
+                
+    wire [7:0] fnd_sec,fnd_c_sec;                       
+    stop_watch swatch(.clk(clk), .reset_p(reset_p), .start_stop(btn_pedge[0]), .lap(btn_pedge[1]),
+                       .clear(btn_pedge[2]),.option(btn_pedge[3]),.fnd_sec(fnd_sec), .fnd_c_sec(fnd_c_sec),
+                       .running_stop(led[0]));
+                       
+//    stop_watch_btn3 swatch_btn3 (.clk(clk), .reset_p(reset_p), .start_stop(btn_pedge[0]), .lap(btn_pedge[1]),
+//                                 .clear(btn_pedge[2]), .fnd_sec(fnd_sec), .fnd_c_sec(fnd_c_sec));                   
+    
+    
+    wire [7:0] c_sec_bcd, sec_bcd;  
+    bin_to_dec btd_c_sec ( .bin(fnd_c_sec), .bcd(c_sec_bcd));
+    bin_to_dec btd_sec( .bin(fnd_sec), .bcd(sec_bcd));
+    
+    FND_cntr fnd(.clk(clk), .reset_p(reset_p), .fnd_value({sec_bcd,c_sec_bcd}), .seg(seg), .com(com)); 
+endmodule

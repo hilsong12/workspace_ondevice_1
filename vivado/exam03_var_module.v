@@ -134,3 +134,193 @@ endmodule
 
 
 
+module stop_watch (
+    input clk, reset_p,
+    input start_stop,
+    input lap,
+    input clear,
+    input option,
+    output reg [7:0] fnd_sec, fnd_c_sec,
+    output reg running_stop);
+    
+   
+    
+    always@( posedge clk, posedge reset_p)begin
+        if(reset_p) begin
+            running_stop=0;
+        
+        end
+        else begin
+            if(start_stop) running_stop = ~running_stop;
+            if(clear) running_stop=0; 
+        end
+    end
+
+   
+    integer cnt_sysclk;
+    reg [7:0] sec, c_sec;
+    reg [7:0] lap_sec,lap_c_sec; //lap기록 저장 
+    reg lap_flag;
+    reg present_latestlap; //option버튼이랑 연결됨
+    always@( posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            cnt_sysclk=0;
+            sec=0;
+            c_sec=0;
+            lap_sec=0;
+            lap_c_sec=0;
+            lap_flag=0;
+            present_latestlap=0;
+        end
+        else begin
+            if(running_stop)begin
+                if(cnt_sysclk >= 999_999)begin  //0.01초가 기준
+                    cnt_sysclk=0;
+                    if(c_sec >=99)begin
+                        sec= sec+1;
+                        c_sec=0;
+                    end   
+                    else c_sec = c_sec+1;
+                end
+                else cnt_sysclk = cnt_sysclk +1;
+                if(lap)begin
+                    lap_sec=sec;
+                    lap_c_sec=c_sec;
+                    lap_flag=1;
+                    present_latestlap=0;
+                end
+                if(option)  present_latestlap=~present_latestlap;
+            end
+            else begin
+                if(clear)begin
+                    cnt_sysclk=0;
+                    sec=0;
+                    c_sec=0;
+                    lap_sec=0;
+                    lap_c_sec=0;
+                    lap_flag=0;
+                    present_latestlap=0;
+                end
+            end
+        end
+    end
+
+    
+  
+    always@(posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            fnd_sec=0;
+            fnd_c_sec=0;
+        end
+        else begin
+            if(lap_flag)begin
+                fnd_sec=lap_sec;
+                fnd_c_sec=lap_c_sec;
+                if(present_latestlap)begin
+                    fnd_sec=sec;
+                    fnd_c_sec=c_sec;
+                end
+            end
+            else begin
+                fnd_sec=sec;
+                fnd_c_sec=c_sec;
+            end
+        end
+    end
+    
+    
+
+endmodule
+
+
+module stop_watch_btn3 (
+    input clk, reset_p,
+    input start_stop,
+    input lap,
+    input clear,
+    output reg [7:0] fnd_sec, fnd_c_sec);
+    
+ 
+    
+    reg running_stop;
+    always@( posedge clk, posedge reset_p)begin
+        if(reset_p) begin
+            running_stop=0;
+        end
+        else begin
+            if(start_stop) running_stop = ~running_stop;
+            if(clear) running_stop=0;
+        end
+    end
+
+   
+    integer cnt_sysclk;
+    reg [7:0] sec, c_sec;
+    reg [7:0] lap_sec,lap_c_sec; //lap기록 저장 
+    reg lap_flag;
+    always@( posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            cnt_sysclk=0;
+            sec=0;
+            c_sec=0;
+            lap_sec=0;
+            lap_c_sec=0;
+            lap_flag=0;
+        end
+        else begin
+            if(running_stop)begin
+                if(cnt_sysclk >= 999_999)begin  //0.01초가 기준
+                    cnt_sysclk=0;
+                    if(c_sec >=99)begin
+                        sec= sec+1;
+                        c_sec=0;
+                    end   
+                    else c_sec = c_sec+1;
+                end
+                else cnt_sysclk = cnt_sysclk +1;
+                if(lap)begin
+                    lap_sec=sec;
+                    lap_c_sec=c_sec;
+                    lap_flag=~lap_flag;
+                end
+                
+            end
+            else begin
+                if(clear)begin
+                    cnt_sysclk=0;
+                    sec=0;
+                    c_sec=0;
+                    lap_sec=0;
+                    lap_c_sec=0;
+                    lap_flag=0;
+                end
+            end
+        
+        end
+    end
+
+    
+
+    always@(posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            fnd_sec=0;
+            fnd_c_sec=0;
+          
+        end
+        else begin
+            if(lap_flag)begin
+                fnd_sec=lap_sec;
+                fnd_c_sec=lap_c_sec;
+            end
+            else begin
+                fnd_sec=sec;
+                fnd_c_sec=c_sec;
+            end
+        end
+    end
+    
+    
+
+endmodule
+
+
