@@ -210,6 +210,27 @@ module ring_counter(
 
 endmodule
 
+
+module ring_counter_3(
+    input clk, reset_p,
+    input btn_ring,
+    output reg [2:0] q);
+    
+    always @(posedge clk, posedge reset_p)begin
+        if(reset_p)q=3'b001;
+        else begin 
+            if(btn_ring)begin
+                if(q !=3'b001 && q !=3'b010 && q !=3'b100) q=3'b001;
+                else q= {q[1:0],q[2]};  //좌시프트 
+            end
+        end
+    end
+
+endmodule
+
+
+
+
 //module ring_counter_led(
 //    input clk, reset_p,
 //    output reg [15:0] led);
