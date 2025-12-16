@@ -160,6 +160,69 @@ endmodule
 
 
 
+module hc_sr04_cntr(
+    input clk, reset_p,
+    input echo,
+    output reg trig,
+    output reg [8:0] distance_cm);
+
+    integer cnt_sysclk, cnt_sysclk0, cnt_usec;
+    reg count_usec_e;
+
+    always @(posedge clk)cnt_sysclk = cnt_sysclk + 1;
+
+    always @(posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            cnt_sysclk0 = 0;
+            cnt_usec = 0;
+        end
+        else if(count_usec_e) begin // 에코 상승에지 count_usec_e = 1, 거리계산 후 0
+            if(cnt_sysclk0 >= 99)begin
+                cnt_sysclk0 = 0;
+                cnt_usec = cnt_usec + 1;
+            end
+            else cnt_sysclk0 = cnt_sysclk0 + 1;
+        end
+        else begin
+            cnt_sysclk0 = 0;
+            cnt_usec = 0;
+        end
+    end
+
+    wire cnt26_pedge, cnt9_pedge;
+    edge_detector_n ed26(.clk(clk), .reset_p(reset_p), .cp(cnt_sysclk[26]),
+     .p_edge(cnt26_pedge));
+    edge_detector_n ed9(.clk(clk), .reset_p(reset_p), .cp(cnt_sysclk[9]),
+     .p_edge(cnt9_pedge));
+
+    always @(posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            trig = 0;
+        end
+        else if(cnt26_pedge)trig = 1; // 1s
+        else if(cnt9_pedge)trig = 0;  // 1280ns = 12us
+    end
+
+    wire echo_pedge, echo_nedge;
+    edge_detector_n ed_echo(.clk(clk), .reset_p(reset_p), .cp(echo),
+     .p_edge(echo_pedge),  .n_edge(echo_nedge)); 
+
+    always @(posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            distance_cm = 0;
+            count_usec_e = 0;
+        end
+        else if(echo_pedge)begin
+            count_usec_e = 1;
+        end
+        else if(echo_nedge)begin
+            distance_cm = cnt_usec / 58;
+            count_usec_e = 0;
+        end
+    end 
+endmodule
+
+
 
 
 
