@@ -166,32 +166,40 @@ module hc_sr04_cntr(
     output reg trig,
     output reg [8:0] distance_cm);
 
+    localparam time_1cm=58;
+
     integer cnt_sysclk, cnt_sysclk0, cnt_usec;
     reg count_usec_e;
-
+    reg [8:0] cnt_cm;
     always @(posedge clk)cnt_sysclk = cnt_sysclk + 1;
 
     always @(posedge clk, posedge reset_p)begin
         if(reset_p)begin
             cnt_sysclk0 = 0;
             cnt_usec = 0;
+            cnt_cm=0;
         end
         else if(count_usec_e) begin // 에코 상승에지 count_usec_e = 1, 거리계산 후 0
             if(cnt_sysclk0 >= 99)begin
                 cnt_sysclk0 = 0;
-                cnt_usec = cnt_usec + 1;
+                if(cnt_usec >=time_1cm -1) begin
+                     cnt_usec = 0;
+                     cnt_cm =cnt_cm+1;
+                end
+                else cnt_usec = cnt_usec + 1;
             end
             else cnt_sysclk0 = cnt_sysclk0 + 1;
         end
         else begin
             cnt_sysclk0 = 0;
             cnt_usec = 0;
+            cnt_cm =0;
         end
     end
 
-    wire cnt26_pedge, cnt9_pedge;
-    edge_detector_n ed26(.clk(clk), .reset_p(reset_p), .cp(cnt_sysclk[26]),
-     .p_edge(cnt26_pedge));
+    wire cnt15_pedge, cnt9_pedge;
+    edge_detector_n ed15(.clk(clk), .reset_p(reset_p), .cp(cnt_sysclk[15]),
+     .p_edge(cnt15_pedge));
     edge_detector_n ed9(.clk(clk), .reset_p(reset_p), .cp(cnt_sysclk[9]),
      .p_edge(cnt9_pedge));
 
@@ -199,8 +207,8 @@ module hc_sr04_cntr(
         if(reset_p)begin
             trig = 0;
         end
-        else if(cnt26_pedge)trig = 1; // 1s
-        else if(cnt9_pedge)trig = 0;  // 1280ns = 12us
+        else if(cnt15_pedge)trig = 1; // 1s
+        else if(cnt9_pedge)trig = 0;  // 10240ns = 10us
     end
 
     wire echo_pedge, echo_nedge;
@@ -209,19 +217,151 @@ module hc_sr04_cntr(
 
     always @(posedge clk, posedge reset_p)begin
         if(reset_p)begin
-            distance_cm = 0;
+            distance_cm =0;
             count_usec_e = 0;
         end
         else if(echo_pedge)begin
             count_usec_e = 1;
         end
         else if(echo_nedge)begin
-            distance_cm = cnt_usec / 58;
             count_usec_e = 0;
+            distance_cm =cnt_cm;
         end
     end 
 endmodule
 
+module dht11_cntr(
+    input clk, reset_p,
+    inout dht11_data,
+    output reg [7:0] humidity, temperature,
+    output [15:0] led);
+    
+    localparam S_IDLE      = 6'b00_0001;
+    localparam S_LOW_18MS  = 6'b00_0010;
+    localparam S_HIGH_20US = 6'b00_0100;
+    localparam S_LOW_80US  = 6'b00_1000;
+    localparam S_HIGH_80US = 6'b01_0000;
+    localparam S_READ_DATA = 6'b10_0000; //신호를 받는상황
+    
+    localparam S_WAIT_PEDGE= 2'b01;  //상승엣지 기다리는 상태
+    localparam S_WAIT_NEDGE= 2'b10;  //하강엣지 기다리는 상태
+    
+    wire clk_usec_nedge;
+    clock_usec usec_clk(.clk(clk), .reset_p(reset_p), 
+                      .clk_usec_nedge(clk_usec_nedge));
+    
+    reg [21:0] count_usec;
+    reg count_usec_e;
+    always @(negedge clk, posedge reset_p)begin
+        if(reset_p)count_usec =0;
+        else if(clk_usec_nedge && count_usec_e)count_usec = count_usec +1;
+        else if(!count_usec_e)count_usec = 0;
+    end
+    
+    wire dht_nedge,dht_pedge;
+    edge_detector_p ed(.clk(clk), .reset_p(reset_p), .cp(dht11_data),
+                       .p_edge(dht_pedge), .n_edge(dht_nedge));
+    
+    reg dht11_data_buffer,dht11_data_out_e;
+    assign dht11_data = (dht11_data_out_e) ? dht11_data_buffer : 'bz;
+    
+    reg [5:0] state, next_state;
+    always @(negedge clk, posedge reset_p)begin
+        if(reset_p) state= S_IDLE;
+        else state= next_state;
+    end
+    
+    assign led[5:0] =state;
+    reg [39: 0] temp_data;
+    reg [5:0] cnt_data;
+    
+    assign led[15:10] = cnt_data;
+    reg [1:0] read_state;
+    always @(posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            next_state= S_IDLE;
+            temp_data=0;
+            cnt_data=0;
+            count_usec_e=0;
+            dht11_data_out_e=0;
+            dht11_data_buffer=0;
+            read_state=S_WAIT_PEDGE;
+        end
+        else begin
+            case(state)
+                S_IDLE: begin   //측정하고 이런거 해야해서 3초 기다려야함 
+                    if(count_usec< 22'd3_000_000)begin
+//                    if(count_usec< 22'd3)begin
+                        count_usec_e =1;
+                        dht11_data_out_e=0; //출력 끊어놓는다.
+                    end
+                    else begin
+                        count_usec_e=0;
+                        next_state =S_LOW_18MS; //하강엣지때 
+                    end
+                end
+                S_LOW_18MS :begin
+                    if(count_usec <22'd20_000)begin
+                        count_usec_e=1;
+                        dht11_data_out_e=1;
+                        dht11_data_buffer = 0;
+                    end
+                    else begin
+                        count_usec_e = 0;
+                        dht11_data_out_e=0;
+                        next_state = S_HIGH_20US;
+                    end
+                end 
+                S_HIGH_20US: begin
+                    if(count_usec <22'd20)begin
+                        count_usec_e=1;
+                    end
+                    else begin
+                        if(dht_nedge)begin
+                            count_usec_e=0;
+                            next_state =S_LOW_80US;
+                        end
+                    end                    
+                end 
+                S_LOW_80US:begin
+                    if(dht_pedge)begin
+                        next_state=S_HIGH_80US;
+                    end
+                end  
+                S_HIGH_80US:begin
+                    if(dht_nedge)begin
+                        next_state=S_READ_DATA;
+                    end
+                end 
+                S_READ_DATA:begin
+                    case(read_state)
+                        S_WAIT_PEDGE: begin
+                            if(dht_pedge)read_state = S_WAIT_NEDGE;
+                            count_usec_e = 0;
+                        end
+                        S_WAIT_NEDGE:begin
+                            count_usec_e = 1;
+                            if(dht_nedge)begin
+                                if(count_usec <50) temp_data= {temp_data[38:0],1'b0};
+                                else temp_data= {temp_data[38:0],1'b1};
+                                cnt_data= cnt_data+1;
+                                read_state = S_WAIT_PEDGE;
+                            end
+                        end
+                        default: read_state = S_WAIT_PEDGE;
+                    endcase
+                    if(cnt_data >=40)begin  
+                        next_state =S_IDLE;
+                        cnt_data = 0;
+                        humidity = temp_data[39:32];
+                        temperature =temp_data[23:16];
+                    end
+                end 
+                default: next_state = S_IDLE;
+            endcase
+        end
+    end
+endmodule
 
 
 
