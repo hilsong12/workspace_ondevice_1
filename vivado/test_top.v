@@ -601,4 +601,145 @@ module dht11_top(
 
 endmodule
 
+module i2c_master_top(
+    input clk,reset_p,
+    input slide,
+    input comm_start,
+    output scl, sda,
+    output [15:0] led);
+    
+    localparam light_on  = 8'b0000_1000;
+    localparam light_off = 8'b0000_0000;
+    
+    wire [7:0] data;
+    wire busy;
+    assign data = slide ? light_on : light_off;
+    I2C_master i2c(clk, reset_p, 7'h27, data, 1'b0, comm_start, scl, sda, busy,led);
+    
+endmodule
+
+
+module i2c_txtlcd_top(
+    input clk, reset_p,
+    input [3:0] button,
+    output scl,sda,
+    output [15:0] led);
+    
+    wire [3:0] btn_pedge;
+    button_cntr btncntr0( clk, reset_p, button[0], btn_pedge[0]);
+    button_cntr btncntr1( clk, reset_p, button[1], btn_pedge[1]);
+    button_cntr btncntr2( clk, reset_p, button[2], btn_pedge[2]);
+    button_cntr btncntr3( clk, reset_p, button[3], btn_pedge[3]);
+    
+    integer cnt_sysclk;
+    reg count_clk_e;
+    always @(negedge clk, posedge reset_p)begin
+        if(reset_p)cnt_sysclk = 0;
+        else if(count_clk_e)cnt_sysclk = cnt_sysclk +1;
+        else cnt_sysclk = 0;
+    end                       
+
+    reg [7:0] send_buffer;
+    reg send,rs;
+    wire busy;
+    i2c_lcd_send_byte send_byte(clk,reset_p, 7'h27, send_buffer,
+                               send, rs, scl, sda, busy, led);
+    
+    localparam IDLE                = 6'b00_0001;
+    localparam INIT                = 6'b00_0010;
+    localparam SEND_CHARACTER      = 6'b00_0100;
+    localparam SHIFT_RIGHT_DISPLAY = 6'b00_1000;
+    localparam SHIFT_LEFT_DISPLAY  = 6'b01_0000;
+   
+    reg [5:0] state,next_state;
+    always @(negedge clk, posedge reset_p) begin
+        if(reset_p)state = IDLE;
+        else state = next_state;
+    end
+    
+    reg init_flag;
+    reg [10:0] cnt_data;
+    always @( posedge clk, posedge reset_p)begin
+        if(reset_p)begin
+            next_state = IDLE;
+            init_flag =0;
+            cnt_data = 0;
+            count_clk_e = 0;
+            send = 0;
+            send_buffer = 0;
+            rs = 0;
+        end
+        else begin
+            case(state)
+            IDLE                   :begin
+                if(init_flag)begin
+                    if(btn_pedge[0])next_state = SEND_CHARACTER;
+                    if(btn_pedge[1])next_state = SHIFT_RIGHT_DISPLAY;
+                    if(btn_pedge[2])next_state = SHIFT_LEFT_DISPLAY;
+                end
+                else begin
+                    if(cnt_sysclk <= 8_000_000)begin
+                       count_clk_e = 1; 
+                    end
+                    else begin
+                       count_clk_e = 0;
+                       next_state = INIT;
+                    end
+                end
+            end
+            INIT                   :begin
+                if(busy)begin
+                    send = 0;
+                    if(cnt_data >=6) begin
+                        cnt_data = 0;
+                        next_state = IDLE;
+                        init_flag = 1;
+                    end
+                end
+                else begin
+                    case(cnt_data)
+                        0: send_buffer = 8'h33;
+                        1: send_buffer = 8'h32;
+                        2: send_buffer = 8'h28;
+                        3: send_buffer = 8'h0f;
+                        4: send_buffer = 8'h01;
+                        5: send_buffer = 8'h06;
+                    endcase
+                    send = 1;
+                    cnt_data = cnt_data +1;
+                end
+            end
+            SEND_CHARACTER         :begin
+            
+            end
+            SHIFT_RIGHT_DISPLAY    :begin
+            
+            end
+            SHIFT_LEFT_DISPLAY     :begin
+            
+            end
+            default  :
+            endcase
+        end
+    end    
+    
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
