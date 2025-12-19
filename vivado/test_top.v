@@ -671,54 +671,77 @@ module i2c_txtlcd_top(
         end
         else begin
             case(state)
-            IDLE                   :begin
-                if(init_flag)begin
-                    if(btn_pedge[0])next_state = SEND_CHARACTER;
-                    if(btn_pedge[1])next_state = SHIFT_RIGHT_DISPLAY;
-                    if(btn_pedge[2])next_state = SHIFT_LEFT_DISPLAY;
-                end
-                else begin
-                    if(cnt_sysclk <= 8_000_000)begin
-                       count_clk_e = 1; 
+                IDLE                   :begin
+                    if(init_flag)begin
+                        if(btn_pedge[0])next_state = SEND_CHARACTER;
+                        if(btn_pedge[1])next_state = SHIFT_LEFT_DISPLAY;
+                        if(btn_pedge[2])next_state = SHIFT_RIGHT_DISPLAY;
                     end
                     else begin
-                       count_clk_e = 0;
-                       next_state = INIT;
+                        if(cnt_sysclk <= 8_000_000)begin
+                           count_clk_e = 1; 
+                        end
+                        else begin
+                           count_clk_e = 0;
+                           next_state = INIT;
+                        end
                     end
                 end
-            end
-            INIT                   :begin
-                if(busy)begin
-                    send = 0;
-                    if(cnt_data >=6) begin
-                        cnt_data = 0;
-                        next_state = IDLE;
-                        init_flag = 1;
+                INIT                   :begin
+                    if(busy)begin
+                        send = 0;
+                        if(cnt_data >=6) begin
+                            cnt_data = 0;
+                            next_state = IDLE;
+                            init_flag = 1;
+                        end
+                    end
+                    else if(!send)begin
+                        case(cnt_data)
+                            0: send_buffer = 8'h33;
+                            1: send_buffer = 8'h32;
+                            2: send_buffer = 8'h28;
+                            3: send_buffer = 8'h0f;
+                            4: send_buffer = 8'h01;
+                            5: send_buffer = 8'h06;
+                        endcase
+                        send = 1;
+                        cnt_data = cnt_data +1;
                     end
                 end
-                else begin
-                    case(cnt_data)
-                        0: send_buffer = 8'h33;
-                        1: send_buffer = 8'h32;
-                        2: send_buffer = 8'h28;
-                        3: send_buffer = 8'h0f;
-                        4: send_buffer = 8'h01;
-                        5: send_buffer = 8'h06;
-                    endcase
-                    send = 1;
-                    cnt_data = cnt_data +1;
+                SEND_CHARACTER         :begin
+                    if(busy)begin
+                        send = 0;
+                        next_state= IDLE;
+                    end
+                    else if(!send)begin
+                        rs =1;
+                        send_buffer ="A";
+                        send =1;
+                    end
                 end
-            end
-            SEND_CHARACTER         :begin
-            
-            end
-            SHIFT_RIGHT_DISPLAY    :begin
-            
-            end
-            SHIFT_LEFT_DISPLAY     :begin
-            
-            end
-            default  :
+                SHIFT_RIGHT_DISPLAY    :begin
+                    if(busy)begin
+                        send = 0;
+                        next_state= IDLE;
+                    end
+                    else if(!send)begin
+                        rs =0;
+                        send_buffer =8'h1c;
+                        send =1;
+                        end
+                end
+                SHIFT_LEFT_DISPLAY     :begin
+                    if(busy)begin
+                        send = 0;
+                        next_state= IDLE;
+                    end
+                    else if(!send) begin
+                        rs =0;
+                        send_buffer =8'h18;
+                        send =1;
+                    end
+                end
             endcase
         end
     end    

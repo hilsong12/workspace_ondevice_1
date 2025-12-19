@@ -560,41 +560,64 @@ module i2c_lcd_send_byte(
                     end
                 end
                 SEND_HIGH_NIBBLE_DISABLE   :begin
-                                //d7 d6 d5 d4 BL en rw rs
-                    data = {send_buffer[7:4], 3'b100, rs}; 
-                    comm_start = 1;
-                    next_state=SEND_HIGH_NIBBLE_ENABLE;
+                    if(count_usec >=22'd200)begin
+                        comm_start = 0;
+                        next_state=SEND_HIGH_NIBBLE_ENABLE;
+                        count_usec_e = 0;
+                    end
+                    else begin
+                                    //d7 d6 d5 d4 BL en rw rs
+                        data = {send_buffer[7:4], 3'b100, rs}; 
+                        comm_start = 1;
+                        count_usec_e = 1;
+                   end
                 end
                 SEND_HIGH_NIBBLE_ENABLE    :begin
-                    if(i2c_busy)comm_start = 0;
+                    if(count_usec >=22'd200)begin
+                        comm_start = 0;
+                        next_state=SEND_LOW_NIBBLE_DISABLE;
+                        count_usec_e = 0;
+                    end
                     else begin
                         data = {send_buffer[7:4], 3'b110, rs}; 
                         comm_start = 1;
-                        next_state=SEND_LOW_NIBBLE_DISABLE;
+                        count_usec_e = 1;
                     end
                 end
                 SEND_LOW_NIBBLE_DISABLE    :begin
-                    if(i2c_busy)comm_start = 0;
+                    if(count_usec >=22'd200)begin
+                        comm_start = 0;
+                        next_state=SEND_LOW_NIBBLE_ENABLE;
+                        count_usec_e = 0;
+                    end
                     else begin
                         data = {send_buffer[3:0], 3'b100, rs}; 
                         comm_start = 1;
-                        next_state=SEND_LOW_NIBBLE_ENABLE;
+                        count_usec_e = 1;
                     end
                 end
                 SEND_LOW_NIBBLE_ENABLE     :begin
-                    if(i2c_busy)comm_start = 0;
+                    if(count_usec >=22'd200)begin
+                        comm_start = 0;
+                        next_state=SEND_DISABLE;
+                        count_usec_e = 0;
+                    end
                     else begin
                         data = {send_buffer[3:0], 3'b110, rs}; 
                         comm_start = 1;
-                        next_state=SEND_DISABLE;
+                        count_usec_e = 1;
                     end
                 end
                 SEND_DISABLE               :begin
-                    if(i2c_busy)comm_start = 0;
+                    if(count_usec >=22'd200)begin
+                        comm_start = 0;
+                        next_state=IDLE;
+                        count_usec_e = 0;
+                    end
                     else begin
                         data = {send_buffer[3:0], 3'b100, rs}; 
                         comm_start = 1;
-                        next_state=IDLE;
+                        count_usec_e = 1;
                     end
                 end
                 default   : next_state = IDLE;
